@@ -1,0 +1,8 @@
+<h1>编辑招聘职位</h1>
+
+<% form_for(@job) do |f| %>
+  <%=render :partial=>'form',:locals=>{:f=>f} %>
+<% end %>
+
+<%= link_to '预览', @job %> |
+<%= link_to '返回', jobs_path %>

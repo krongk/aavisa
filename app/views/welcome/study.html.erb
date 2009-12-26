@@ -1,0 +1,98 @@
+<%content_for(:side_top) do %>
+  <!--
+      <div class="sidebar" style="color:red">
+        <div class="sidebar_title"><h2>留学移民</h2></div>
+        <div class="sidebar_body" style="background-color:#758EBF;">
+          <p>sdf</p>
+        </div>
+      </div>
+      <br/>
+      -->
+    <%  end %>
+
+<!--begin channel body-->
+<div  class="page2_body">
+  <div class="subcolumns">
+    <div class="c50l">
+      <div class="subcl">
+        <h5>留学资讯</h5>
+        <ul class="home_news">
+          <% @pro_liuxue.each do |pro| %>
+            <% parent = Project.find(pro.parent_id) %>
+            <% pro.items.find(:all,:order=>"sort_id desc,created_at desc",:limit=>12).each do |item| %>
+              <li> <%=link_to parent.cn_name+"-| "+item.title,item,:style=>"color:#{item.title_style}"%></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="c50r">
+      <div class="subcr">
+        <h5>移民资讯</h5>
+        <ul class="home_news">
+          <% @pro_yimin.each do |pro| %>
+            <% parent = Project.find(pro.parent_id) %>
+            <% pro.items.find(:all,:order=>"sort_id desc,created_at desc",:limit=>12).each do |item| %>
+              <li> <%=link_to  parent.cn_name+"-| "+item.title,item,:style=>"color:#{item.title_style}"%></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subcolumns">
+    <div class="c50l">
+      <div class="subcl">
+        <h5>学院介绍</h5>
+        <ul class="home_news">
+          <% @pro_college.items.find(:all,:order=>"sort_id desc,created_at desc",:limit=>12).each do |item| %>
+            <li> <%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="c50r">
+      <div class="subcr">
+        <h5>申请指南</h5>
+        <ul class="home_news">
+          <% @pro_guide.items.find(:all,:order=>"sort_id desc,created_at desc",:limit=>2).each do |item| %>
+            <li> <%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+          <% end %>
+          <% projects = Project.find(:all,:conditions=>["parent_id = ?",@pro_guide.id]) %>
+          <% projects.each do |pro| %>
+            <% pro.items.find(:all,:order=>"sort_id desc,created_at desc",:limit=>3).each do |item| %>
+              <li> <%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+<div class="subcolumns">
+  <div class="c50l">
+    <div class="subcl">
+      <h5>留学在线咨询</h5>
+      <ul class="home_news">
+        <% Anote.find(:all,:conditions=>["is_display = 1"],:order=>"created_at desc",:limit=>8).each do |note| %>
+          <li> <%=link_to note.name+": "+note.question.chars[0..20],note %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="c50r">
+    <div class="subcr">
+      <h5>移民在线咨询</h5>
+      <ul class="home_news">
+        <% Bnote.find(:all,:conditions=>["is_display = 1"],:order=>"created_at desc",:limit=>8).each do |note| %>
+          <li> <%=link_to note.name+": "+note.question.chars[0..20],note %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+<!--end channel body-->
+<%=render :partial=>"layouts/search"%>
+<%=render :partial=>"layouts/friend_link"%>

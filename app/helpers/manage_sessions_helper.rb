@@ -1,0 +1,2 @@
+module ManageSessionsHelper
+end

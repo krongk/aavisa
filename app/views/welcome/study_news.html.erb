@@ -1,0 +1,23 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<% @items.each do |item| %>
+<dl>
+  <dt>
+    <%=link_to item.title, item%>
+  </dt>
+  <dd>
+   <div id="new_bar">标签:
+    <% item.tags.each  do |tag| -%>
+      <%=link_to tag.name,{:controller=>:items,:action=>:tag,:id=>tag.name} -%>&nbsp;&nbsp;
+    <% end -%>&nbsp;&nbsp;&nbsp;&nbsp;
+    发布时间: <%=format_date(item.created_at)%>
+   </div>
+    <%=cut(item.info.chars[0...500])%>
+  </dd>
+</dl>
+<% end  %>
+<div class='flickr_pagination'>
+<%= will_paginate @items,:next_label=>"下一页",:previous_label=>"上一页" %>
+</div>

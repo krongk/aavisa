@@ -1,0 +1,37 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<% @pro_gpc = Project.find(:first,:conditions=>["cn_name like '萨省商贸合作'"],:order=>"created_at DESC")%>
+<% @projects = Project.find(:all,:conditions=>["parent_id = ?",@pro_gpc.id]) %>
+
+<div class="subcolumns" style="float:none;">
+  <table width="100%">
+  <tr>
+    <td width="220"><b>加拿大萨省国际商贸合作</b><img src="/images/s4.gif" width="207" height="130" /></td>
+    <td rowspan="2"><h4>GPC服务</h4>
+      GPC资金公司代表着投资者，企业家，和来自亚洲，欧洲和美国的移民。GPC提供一整套专业的商业服务。<br />
+      我们的客户投资于企业和房地产，其中包括商业，工业，农业及住宅业务。我们提供专业的商业服务，在广阔的商业界和政府内部，以确保我们客户的投资和商业需求得到满足。 <br />
+     <br /> <strong>商业投资 </strong><br />
+      在加拿大西部，我们的企业和政府网络将提供尽可能广泛地商业投资机会。很多投资者及企业家希望建立起商业买卖，
+      通过它做为一个打开加拿大市场的商业平台。我们的工作是帮助我们的客户在加拿大建立起他们自己的商业活动。
+      我们也会帮助我们的客户在加拿大建立起现有的和将要建立的伙伴关系或者战略同盟关系。
+      <p><br /><strong>移民 </strong><br />
+        我们的专业移民顾问会做一个“需求评估”，以评估准备移民到加拿大的客户。 我们同省级及联邦移民局的合作十分密切。
+        在许多情况下，我们的客户能够移民萨斯喀彻温省的萨斯喀彻温省提名计划（ “ SINP ” ） 。
+        我们的客户通常是“企业家”一类。我们的移民顾问将为我们的客户确定企业投资和发展良好的，适合客户商业投资和移民需要的商业计划。 
+       <a href="/gpc">浏览更多...</a>
+       </p>
+    </td>
+  </tr>
+  <tr>
+    <td><ul class="home_news">新闻
+       <% items= Item.find(:all,:conditions=>["project_id in (?)",@projects<<@pro_gpc],:order=>"created_at DESC",:limit=>8) %>
+        <% items.each do |item| %>
+         <li><%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+        <% end %>
+      </ul></td>
+</tr>
+</table>
+</div>
+

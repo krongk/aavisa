@@ -1,0 +1,30 @@
+<%#
+# 频道导航之联合办学.
+%>
+<% @pro_school = Project.find(:first,:conditions=>["cn_name like '国际联合办学'"],:order=>"created_at DESC")%>
+<% @projects = Project.find(:all,:conditions=>["parent_id = ?",@pro_school.id]) %>
+
+<div class="subcolumns" style="float:none;">
+  <table width="100%">
+  <tr>
+    <td width="220"><b>国际联合办学</b><img src="/images/s2.gif" width="207" height="130" /></td>
+    <td rowspan="2"><h4>项目简介</h4>
+      <p>1. 我公司作为加拿大大学代表和成都合作学校一起携手合作举办的“加拿大大学国际预科”，是专为中国普通高中毕业生直接升读加拿大大学本科而开设，该预科旨在提高中国普通高中毕业生的英文水平、学习能力以及为将来赴加拿大大学本科学习进行专业知识的准备，时长为一年。</p>
+      <p>2.国内所学课程： <br />
+        (1) 英语语言强化课程：基础英语、英语口语、英语听力、英语写作和雅思考试强化训练。 <br />
+      (2) 加拿大大学预科课程：经济学概论，微积分1，统计学概论。</p>
+      <p>3.第一学年学生在成都合作的学校就读，成绩合格者且英语水平相当于雅思6.5分，无需考试直接入读加拿大大学本科一年级。学生可以选择等加拿大大学所有的100多个本科课程，三年后将获得加拿大本科学士学位。暂时未能通过语言考试的学生，也可获得温莎大学等加拿大大学颁发的有条件录取通知书，进入加拿大大学先攻读语言课程，通过后进入专业课程并于毕业时获得加拿大本科学士学位。
+      <a href="/school">浏览更多...</a>
+      </p>
+      </td>
+  </tr>
+  <tr>
+    <td> <ul class="home_news">新闻
+       <% items= Item.find(:all,:conditions=>["project_id in (?)",@projects<<@pro_school],:order=>"created_at DESC",:limit=>10) %>
+        <% items.each do |item| %>
+         <li><%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+        <% end %>
+      </ul></td>
+</tr>
+</table>
+</div>

@@ -1,0 +1,39 @@
+<h3 class="niftys_h3">留学-在线评估</h3>
+
+<% @bnotes.each do |bnote| %>
+  <div class="note_list">
+    <div class="title"><span class="id"><%=h bnote.id %>.</span>
+      <%=h bnote.name %> &nbsp;|&nbsp; <%=h bnote.tel %>  &nbsp;|&nbsp; 
+       &nbsp;|&nbsp; <%=h bnote.birth %>  &nbsp;|&nbsp; <%=h bnote.email %>
+      <span class="note_menu">
+        回复:
+        <%if bnote.is_reply%>
+          <%=link_to image_tag("/images/yes1.gif"),"javascript:void(0);",
+            :onclick=>remote_function(:update=>"reply#{bnote.id}",:with=>"'id=#{bnote.id}'",
+            :url=>{:action=>:reply}) %>
+        <%else%>
+          <%=link_to image_tag("/images/no1.gif"),"javascript:void(0);",
+            :onclick=>remote_function(:update=>"reply#{bnote.id}",:with=>"'id=#{bnote.id}'",
+            :url=>{:action=>:reply}) %>
+        <%end%>
+        显示:<%if bnote.is_display %><img src="/images/yes1.gif" /><%else%><img src="/images/no1.gif"/><%end%>
+        <%= link_to image_tag("/images/delete1.gif"), bnote, :confirm => '确定要删除?', :method => :delete %>
+    </span></div>
+    <div class="question">
+      <%=h bnote.question %>
+    </div>
+    <div id="reply<%=bnote.id%>">
+      <% if bnote.is_reply %>
+        <div class="answer">
+          <%=h bnote.replyer %>:
+          <%=h bnote.answer %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class='flickr_pagination'>
+  <%= will_paginate @bnotes,:next_label=>"下一页",:previous_label=>"上一页" %>
+  <div clas="page_info"><%= page_entries_info @bnotes %> </div>
+</div>

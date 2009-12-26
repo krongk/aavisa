@@ -1,0 +1,35 @@
+<div id="niftys" class="niftys">
+<h2 class="form_h2">&nbsp;&nbsp;<b>亚美在线报名系统</b></h2>
+<% form_for(@sign,:html=>{:onsubmit=>"return _submit();"}) do |f| %>
+  <%=render :partial=>'form',:locals=>{:f=>f}%>
+<% end %>
+
+</div>
+
+<% content_for :js do %>
+  <script type="text/javascript">
+    function _submit(){
+      if( validator.isPassed(1)){
+        //alert("验证通过，可以提交数据了！");
+        return true;
+      }
+      return false;
+    }
+    var validator = new MyValidator();
+    validator.addValidation(new  InputRangeCustomValidation("sign_name","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("sign_tel","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+     validator.addValidation(new  InputRangeCustomValidation("sign_phone","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("sign_tel","true",	"*必填*",
+    "<span style='color:red'>*请正确填写电话号码</span> ","default",18,28,regObj["_phone"]));
+     validator.addValidation(new  InputRangeCustomValidation("sign_address","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+     validator.addValidation(new  InputRangeCustomValidation("sign_a_school","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("sign_zip",	"true",	"*必填*",
+    "<span style='color:red'>*正确填写邮编</span>","default",18,28,regObj["_zip"]));
+    validator.setUp(1);
+  </script>
+<% end %>

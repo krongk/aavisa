@@ -1,0 +1,33 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<% @pro_yamei = Project.find(:first,:conditions=>["cn_name like '亚美介绍'"],:order=>"created_at DESC")%>
+<% @projects = Project.find(:all,:conditions=>["parent_id = ?",@pro_yamei.id]) %>
+
+<div class="subcolumns" style="float:none;">
+  <table width="100%">
+  <tr>
+    <td width="220"><b>关于亚美</b><img src="/images/s5.gif" width="207" height="130" /></td>
+    <td rowspan="2">
+      <p> 亚美经济文化发展有限公司（Asia-America Economy &amp; Culture Development Inc.）2003年在加拿大多伦多成立，一个主要由加拿大华人以及留学生组成。从事海内外留学教育项目、投资移民项目、国际合作办学项目及国际经贸合作项目的专业性国际机构。公司总部位于加拿大多伦多市，中国总部位于四川省成都市，同时，并在香港、北京、重庆、深圳，广州、珠海、贵阳等地分别设立公司分部，逐步向全国开展商务合作。<br />
+      <br />
+      在国内亚美经济文化与中华人民共和国共青团中央下属机构世纪博园合作在国内开展出国留学留学办理业务。
+      公司实力雄厚，聘有多位资深移民律师及加拿大移民协会CSIC（Andy Tam）首批会员（证书号：M041206）和留学专业顾问，
+      十多年来，他们一直致力于承办出国留学及移民定居等国家间的法律服务和咨询，业务遍及全国各地和地区。
+      通过多年的工作，公司总经理何翰林先生（William He），作为多年旅居加拿大华人一直致力于文化教育工作并获得，爱德华王子岛大学，
+      蒙特埃里森大学，麦基尔大学，全球唯一中方招生表职位。
+      同时，是加拿大国家银行，加拿大帝国银行，萨温省宏伟计划的中方制定代表。<a href="/welcome/aavisa_info">浏览更多>></a></p>
+      
+    </td>
+  </tr>
+  <tr>
+ <td><ul class="home_news">新闻
+       <% items= Item.find(:all,:conditions=>["project_id in (?)",@projects<<@pro_yamei],:order=>"created_at DESC",:limit=>10) %>
+        <% items.each do |item| %>
+         <li><%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+        <% end %>
+      </ul></td>
+</tr>
+</table>
+</div>

@@ -1,0 +1,18 @@
+<%= error_messages_for :manage %>
+<%=flash[:notice]%>
+<h2>后台管理员用户注册</h2>
+<% form_for :manage, :url => manages_path do |f| -%>
+<p><label for="login">登录名</label><br/>
+<%= f.text_field :login %></p>
+
+<p><label for="email">邮箱</label><br/>
+<%= f.text_field :email %></p>
+
+<p><label for="password">密码</label><br/>
+<%= f.password_field :password %></p>
+
+<p><label for="password_confirmation">密码确认</label><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= submit_tag '注册' %></p>
+<% end -%>

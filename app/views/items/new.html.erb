@@ -1,0 +1,110 @@
+<div id="niftys" class="niftys">
+<h3 class="niftys_h3">添加新文章
+<a href="javascript:go(-1);" class="niftys_right">返回</a>
+</h3>
+<% form_for(@item,:html=>{:onsubmit=>'return _submit();'}) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :project_id,'选择栏目' %><br />
+		<%= f.select :project_id, @projects.collect{|c|[ c.the_name, c.id ]} %>
+		<br/><span style="color:#666">*文章必须指定相应的栏目</span>
+  </p>
+  <p>
+    <%= f.label :title,'文章标题' %><br />
+    <%= f.text_field :title,:size=>'100'%>
+    <select id="item_title_style" name="item[title_style]"><option value="">标题颜色</option>
+      <option value="red">红色</option>
+      <option value="blue">蓝色</option>
+      <option value="green">绿色</option>
+    </select>
+  </p>
+  <a href="javascript:void(0);" onclick="javascript:$('stitle').style.display='block';">添加附标题</a>
+  <p id="stitle" style="display:none;">
+    <%= f.text_field :stitle,:size=>'100' %>
+  </p>
+  <p>
+    <%= f.label :info,'文章内容' %><br />
+		<%= fckeditor_textarea("item", "info", :toolbarSet => 'Base', :width => '720px',:height=>"400px") %>
+  </p>
+  <p>
+    <%= f.label :tags,'标签' %><br />
+    <%= f.text_field :tag_list,:size=>'60' %>*多个标签以","隔开
+  </p>
+ <p>
+    <%= f.label :author,'作者|编辑' %><br />
+    <%= f.text_field :author,:size=>'60' %>
+  </p>
+  <p>
+    <%= f.label :source,'来源' %><br />
+    <%= f.text_field :source,:size=>'60' %>
+  </p>
+  <p>
+    <%= f.label :property,'文章显示属性' %><br />
+    <%= f.hidden_field :property %>
+    <label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />推荐</label>
+    <label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />滚动</label>
+    <label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />热点</label>
+    <label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />幻灯</label>
+    <label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />头条</label>
+    <label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />公告</label>
+    <label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />广告</label>
+    <label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />经典</label>
+    <script language="javascript">
+        function chk_property()
+        {
+                var val="";
+                var allPropertyCheckboxs=document.getElementsByName("CheckboxGroupProperty");
+                for(var i=0; i<allPropertyCheckboxs.length; i++)
+                {
+                if(allPropertyCheckboxs[i].type=="checkbox")
+                {
+                     if(allPropertyCheckboxs[i].checked==true)
+                     {
+                     val=val +"1,";
+                     }else
+                     {
+                     val=val+"0,";
+                     }
+                }
+                }
+                //alert(val);
+                //写入属性字段
+                document.getElementById("item_property").value = val;
+        }
+    </script>
+  </p>
+ 
+  <p>
+    <%= f.label :metakeywords,'关键字' %><br />
+    <%= f.text_field :metakeywords,:size=>'60' %>
+  </p>
+  <p>
+    <%= f.label :metadesc,'关键描述' %><br />
+    <%= f.text_field :metadesc,:size=>'60' %>
+  </p>
+  <p>
+    <%= f.submit '提交' %>
+  </p>
+<% end %>
+<a href="javascript:go(-1);">返回</a>&nbsp;|&nbsp;<%= link_to '返回文章列表', items_path %>
+</div>
+
+<% content_for :js do %>
+   <script type="text/javascript">
+    function _submit(){
+      if( validator.isPassed(1)){
+        //alert("认证通过，可以提交数据了！");
+        return true;
+      }
+      return false;
+    }
+    var validator = new MyValidator();
+    validator.addValidation(new SelectRangeValidation("item_project_id","true","item[project_id]","*必选","*必须选择一项父栏目 !",1,30));
+    validator.addValidation(new InputRangeCustomValidation("item_title","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new InputRangeCustomValidation("item__info_editor","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    
+    validator.setUp(1);
+  </script>
+<% end %>

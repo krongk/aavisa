@@ -1,0 +1,30 @@
+<h3 class="niftys_h3">所有文章列表</h3>
+<table>
+  <tr>
+    <th width="10px">编号</th>
+    <th width="60px">姓名</th>
+    <th width="100px">联系电话</th>
+    <th width="100px">手机</th>
+    <th width="100px">申请院校</th>
+    <th width="20px">签约</th>
+    <th width="100px">档案编号</th>
+    <th width="20px">有效</th>
+    <th> </th>
+    <th></th>
+  </tr>
+
+<% @signs.each do |sign| %>
+  <tr>
+    <th><%=h sign.id %></th>
+    <td><%=h sign.name %></td>
+    <td><%=h sign.tel %></td>
+    <td><%=h sign.phone %></td>
+    <td><%=h sign.a_school %></td>
+    <td><%=yes_or_no(sign.is_contract) %></td>
+    <td><%=h sign.record_code %></td>
+    <td><%=yes_or_no(sign.is_valid) %></td>
+    <td><%= link_to '修改', edit_sign_path(sign) %></td>
+    <td><%= link_to '删除', sign, :confirm => '确定删除?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

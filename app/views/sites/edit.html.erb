@@ -1,0 +1,49 @@
+<div class="note">
+<% form_for(@site) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :login,'登录名' %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label :password,'密码' %><br />
+    <%= f.text_field :password %>
+  </p>
+  <p>
+    <%= f.label :company_name,'公司名' %><br />
+    <%= f.text_field :company_name %>
+  </p>
+  <p>
+    <%= f.label :site_url,'网站地址' %><br />
+    <%= f.text_field :site_url,:value=> @site.site_url || 'http://' %>
+  </p>
+  <p>
+    <%= f.label :address,'公司地址' %><br />
+    <%= f.text_field :address %>
+  </p>
+  <p>
+    <%= f.label :phone,'联系电话' %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :fax,'传真' %><br />
+    <%= f.text_field :fax %>
+  </p>
+  <p>
+    <%= f.label :email,'电子邮件' %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :site_footer,'页脚内容' %><br />
+  	<%= fckeditor_textarea("site", "site_footer", :toolbarSet => 'Base',
+			:width => '700px', :height => '300px') %>
+  </p>
+  <p>
+    <%= f.submit '修改' %>
+  </p>
+<% end %>
+</div>
+<div class="menu">
+<%= link_to '返回', sites_path %>
+</div>

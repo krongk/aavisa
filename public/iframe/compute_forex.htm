@@ -1,0 +1,160 @@
+
+<!-- saved from url=(0051)http://finance.sina.com.cn/iframe/compute_forex.htm -->
+<HTML><HEAD><META http-equiv="Content-Type" content="text/html; charset=GBK">
+<TITLE>外汇计算器</TITLE>
+
+<STYLE type="text/css">
+td,p,li,select,input,textarea {font-size:12px}
+</STYLE>
+<SCRIPT language="javascript">
+function isNum(num)
+{
+	var validnum = "0123456789.";
+	var temp;
+	var i;
+	if(num.length<1)
+	{
+		return 0;
+	}
+	for (i=0; i<num.length; i++)
+	{
+		temp = "" + num.substring(i, i+1);
+		if (validnum.indexOf(temp) == "-1")
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+function computeF()
+{
+	var bsv = document.compuforex.bs.value;
+	if (isNum(bsv) != 1)
+	{
+		alert("金额必须为数字.");
+		return false;
+	}
+	document.compuforex.res.value = "0";
+	var r=0;
+	var x = document.compuforex.c1[document.compuforex.c1.selectedIndex].value;
+	var y = document.compuforex.c2[document.compuforex.c2.selectedIndex].value;
+	var i=0, locx=0, locy=0;
+	var m = new Array("US", "EU", "GB", "AU", "JP", "CH", "CA", "HK", "CN");
+	var v = new Array("1.00", "1.3617", "1.4545", "0.7025", "96.92", "1.125", "1.2289", "7.7502", "6.7746");
+
+	var forlist = new Array();
+	forlist[0] = new Array("677.46","685.67");
+	forlist[1] = new Array("890.07","916.54");
+	forlist[2] = new Array("998.02","1027.7");
+	forlist[3] = new Array("439.61","452.69");
+	forlist[4] = new Array("7.367","7.5861");
+	forlist[5] = new Array("566.19","583.03");
+	forlist[6] = new Array("535.51","551.44");
+	forlist[7] = new Array("87.41","88.46");
+
+	for (i=0;i<m.length;i++)
+	{
+		if (x == m[i])
+		{
+			locx = i;
+		}
+		if (y == m[i])
+		{
+			locy = i;
+		}
+	}
+
+	if (locx == 8 || locy == 8){
+		if (locx==8 && locy==8){
+			r=bsv;
+		}
+		else
+		{
+			if (locx == 8)
+			{
+				r=bsv*100/forlist[locy][1];
+			}
+			else	//locy==8
+			{
+				r = bsv*forlist[locx][0]/100;
+			}
+		}
+	}
+	else
+	{
+		if(locx <= 3)
+		{
+			if (locy <= 3)
+			{
+				r = v[locx] * bsv / v[locy];
+			}
+			else
+			{
+				r = v[locx] * bsv * v[locy];
+			}
+		}
+		else
+		{
+			if (locy <= 3)
+			{
+				r = bsv / (v[locx] * v[locy]);
+			}
+			else
+			{
+				r = v[locy] * bsv / v[locx];
+			}
+		}
+	}
+
+	if (r != 0)
+	{
+		r = "" + r;
+		if(r.indexOf(".")!="-1" && r.indexOf(".")<(r.length-5))
+		{
+			r = r.substring(0, r.indexOf(".")+5);
+		}
+		document.compuforex.res.value = r;
+	}
+	return false;
+}
+</SCRIPT>
+
+</HEAD><BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0">
+<CENTER>
+<FORM name="compuforex" onSubmit="return computeF();">
+<TABLE border="0" cellpadding="0" cellspacing="0" align="center" width="100%">
+<TBODY><TR><TD>
+<INPUT type="text" name="bs" value="100" id="bs" size="10">
+</TD>
+    <TD><select name="c1">
+      <option value="US">美元</option>
+      <option value="EU">欧元</option>
+      <option value="GB">英镑</option>
+      <option value="AU">澳元</option>
+      <option value="JP">日元</option>
+      <option value="CH">瑞郎</option>
+      <option value="CA">加元</option>
+      <option value="HK">港币</option>
+      <option value="CN">人民币</option>
+    </select></TD>
+    <TD>即时价格</TD></TR>
+<TR><TD><INPUT type="text" name="res" id="res" readonly="" size="10" style="background-color: #E3E3E3; border: 1 solid #808080"></TD>
+  <TD><select name="c2">
+    <option value="US">美元</option>
+    <option value="EU">欧元</option>
+    <option value="GB">英镑</option>
+    <option value="AU">澳元</option>
+    <option value="JP">日元</option>
+    <option value="CH">瑞郎</option>
+    <option value="CA">加元</option>
+    <option value="HK">港币</option>
+    <option value="CN">人民币</option>
+  </select></TD>
+<TD><input type="submit" value="计算"></TD></TR>
+</TBODY></TABLE>
+</FORM>
+</CENTER>
+
+
+</BODY></HTML>

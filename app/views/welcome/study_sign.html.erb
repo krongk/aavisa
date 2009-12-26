@@ -1,0 +1,72 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<style type="text/css">
+  <!--
+  #sign_search {
+    margin: 8px;
+    padding: 10px;
+    background-color: #D5D7F7;
+    border: 1px solid #ABAEEF;
+  }
+  -->
+</style>
+<h2>进程查询</h2>
+加拿大公民身份与移民部致力于提供最好的服务。北京加拿大驻华大使馆签证处提供24小时申请进展网上查询服务。此处的信息每日更新。<br />
+<br />
+在使用申请进展网上查询系统前请仔细阅读以下说明：
+<ul>
+  <li>如果你通过邮寄的方式递交申请且还不知道你的档案号码，请耐心等待。我们会给你邮寄确认函并告知你的档案号码。出于对你的隐私保密，我们不在网上提供档案号码。</li>
+  <li>不要将你的证件号码透露给别人。</li>
+  <li>查询申请进展状况需要&quot;档案号码&quot;和&quot;主申请人的出生日期&quot;。配偶或子女的出生日期将不被认可。</li>
+  <li>如果申请进展查询结果显示我处已寄发邮件给你，请耐心等待。从我处寄出的中国国内的邮件可能需要2-3周时间，寄至海外的邮件可能需要3-6周时间。</li>
+</ul>
+<p>如果你知道你的档案号码，请在下面的空格中填入相应的信息并点击&quot;获得申请进展状况&quot;。<br />
+  <div id="sign_search">
+    <form action="/welcome/study_sign">
+      档案号码（例如：LX20090101001）：<input name="code" type="text" maxlength="30" size="30" style="height:25px;" />
+      <input type="submit"  value="提交" />
+    </form>
+  </div>
+<% if params[:code] !=nil and !@sign.nil? %>
+  <h3>查询结果</h3>
+<hr/>
+<table width="100%" border="1" align="center">
+  <tr>
+    <td>咨询</td>
+    <td>签合同</td>
+    <td>做方案</td>
+    <td>提供材料</td>
+    <td>申请学校</td>
+    <td>做签证</td>
+    <td>送签</td>
+    <td>体检表</td>
+    <td>签证材料退回</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+</table><br/>
+<table width="40%" border="1">
+  <tr>
+    <td>档案编号</td>
+    <td>目前进程阶段</td>
+  </tr>
+  <tr>
+    <td style="color:red;font-size:1.2em;"><%=@sign.record_code%></td>
+    <td style="color:red;font-size:1.2em;"><%=@sign.step%></td>
+  </tr>
+</table>
+<% else %>没有找到结果!
+<hr/>
+
+<% end %>

@@ -1,0 +1,40 @@
+<h3 class="niftys_h3">用户注册</h3>
+<div style="padding:10px;">
+<% form_for :user, :url => users_path,:html=>{:onsubmit=>'return _submit();'} do |f| -%>
+<p><label for="login">登录名</label><br/>
+<%= f.text_field :login %></p>
+
+<p><label for="email">电子邮件</label><br/>
+<%= f.text_field :email %></p>
+
+<p><label for="password">输入密码</label><br/>
+<%= f.password_field :password %>*密码至少为4位</p>
+
+<p><label for="password_confirmation">确认密码</label><br/>
+<%= f.password_field :password_confirmation %></p>
+
+<p><%= submit_tag '注  册' %></p>
+<% end -%>
+</div>
+
+<% content_for :js do %>
+  <script type="text/javascript">
+    function _submit(){
+      if( validator.isPassed(1)){
+        //alert("验证通过，可以提交数据了！");
+        return true;
+      }
+      return false;
+    }
+    var validator = new MyValidator();
+    validator.addValidation(new  InputRangeCustomValidation("user_login","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("user_email","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("user_email","true",	"*邮箱*",
+    "<span style='color:red'>*请输入正确邮箱格式*</span>","default",18,28,regObj["_email"]));
+    validator.addValidation(new  MatchedValidation("user_password_confirmation",	"true",	"user_password","*",
+    "<span style='color:red'>必填,两次输入不一致!</span>"));
+    validator.setUp(1);
+  </script>
+<% end %>

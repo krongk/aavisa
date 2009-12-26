@@ -1,0 +1,21 @@
+<%#
+# 前台查看到的items/show界面
+%>
+<div id="new_detail">
+  <br/>
+  <h1><span style="color:<%=@item.title_style%>"><%=white_list @item.title %></span></h1>
+  <% if @item.stitle.chomp.strip !=  '' %> <h3>----<%=h @item.stitle %></h3><% end %>
+  <div id="new_bar">
+    标签:
+    <% @item.tags.each  do |tag| -%>
+      <%=link_to tag.name,{:action=>:tag,:id=>tag.name} -%>&nbsp;&nbsp;
+    <% end -%>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span style="overflow:auto;margin:0px;padding:0px;">发布时间:<%=format_date(@item.created_at)%></span>
+  </div>
+  <div id="new_body">
+  
+    <%= @item.info %>
+  </div>
+
+</div>

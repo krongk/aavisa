@@ -1,0 +1,7 @@
+<h1>添加职位</h1>
+
+<% form_for(@job) do |f| %>
+ <%=render :partial=>'form' ,:locals=>{:f=>f}%>
+<% end %>
+
+<%= link_to '返回', jobs_path %>

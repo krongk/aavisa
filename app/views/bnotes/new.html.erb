@@ -1,0 +1,304 @@
+<div id="niftys" class="niftys">
+   <h2 class="form_h2">&nbsp;&nbsp;<b>移民--在线评估系统</b></h2>
+<% form_for(@bnote,:html=>{:onsubmit=>'return _submit();'}) do |f| %>
+  <%= f.error_messages %>
+ <h2 class="form_h2">Part1: 个人基本信息</h2>
+  <p>
+    <%= f.label :name,'姓名' %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :sex,'性别' %>:
+      <input type="radio" name="bnote[sex]" value="男" id="RadioGroup1_0" />男 &nbsp;
+      <input type="radio" name="bnote[sex]" value="女" id="RadioGroup1_1" />女
+  </p>
+  <p>
+    <%= f.label :city,'居住城市' %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :birth,'出生日期' %><br />
+    <%= f.date_select :birth,:start_year=>1950,:end_year=>2000,:use_month_numbers=>true %>
+  </p>
+  <p>
+    <%= f.label :tel,'方便联络的电话' %><br />
+    <%= f.text_field :tel %>
+  </p>
+  <p>
+    <%= f.label :contact_time,'方便联络的时间' %><br />
+    <select name="bnote[contact_time]">
+      <option value="任意时间">任意时间</option>
+      <option value="8:00-12:00">8:00-12:00</option>
+      <option value="12:00-14:00">12:00-14:00</option>
+      <option value="14:00-18:00">14:00-18:00</option>
+      <option value="18:00-22:00">18:00-22:00</option>
+    </select>
+  </p>
+  <p>
+    <%= f.label :fax,'传真' %><br />
+    <%= f.text_field :fax %>
+  </p>
+  <p>
+    <%= f.label :email,'电子邮件' %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :like_country,'阁下感兴趣的移民国家(可选多个):' %><br />
+    <%= f.hidden_field :like_country %>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="加拿大" id="_0" />加拿大</label>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="美国" id="_1" />美国</label>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="英国" id="_2" />英国</label>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="澳大利亚" id="_3" />澳大利亚</label>
+   <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="英国" id="_2" />法国</label>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="英国" id="_2" />其它国家</label>
+   <script language="javascript">
+      function chk_property()
+        {
+                var val="";
+                var allPropertyCheckboxs=document.getElementsByName("CheckboxGroup1");
+                for(var i=0; i<allPropertyCheckboxs.length; i++)
+                {
+                if(allPropertyCheckboxs[i].type=="checkbox")
+                {
+                     if(allPropertyCheckboxs[i].checked==true)
+                     {
+                     val=val +","+allPropertyCheckboxs[i].value;
+                     }
+                }
+                }
+                //alert(val);
+                //写入属性字段
+                document.getElementById("anote_plan_level").value = val;
+        }
+   </script>
+  </p>
+  <p>
+    <%= f.label :relative_info,'是否有亲属是美国/加拿大/澳大利亚/英国/马来西亚/新加坡之公民或永久居民？' %><br />
+    <%= f.text_field :relative_info%>
+  </p>
+  <p>
+    <%= f.label :self_info,'本人或配偶以前是否访问过美国/加拿大/澳大利亚/英国/马来西亚/新加坡？是否曾被拒签过？' %><br />
+    <%= f.text_field :self_info%>
+  </p>
+   <h2 class="form_h2">Part2: 教育情况</h2>
+  <p>
+    <%= f.label :self_education,'本人最高学历' %>:
+    <label><input type="radio" name="bnote[self_education]" value="高中及以下" id="RadioGroupEdu_0" />高中及以下</label>
+    <label><input type="radio" name="bnote[self_education]" value="大专" id="RadioGroupEdu_1" />大专</label>
+    <label><input type="radio" name="bnote[self_education]" value="本科" id="RadioGroupEdu_2" />本科</label>
+    <label><input type="radio" name="bnote[self_education]" value="硕士及以上" id="RadioGroupEdu_3" />硕士及以上</label>
+  </p>
+  <p style="margin-left:20px;">
+    <%= f.label :self_english,'英语水平' %>:
+    <label><input type="radio" name="bnote[self_english]" value="不会" id="RadioGroupEdu_0" />不会</label>
+    <label><input type="radio" name="bnote[self_english]" value="困难" id="RadioGroupEdu_1" />困难</label>
+    <label><input type="radio" name="bnote[self_english]" value="好" id="RadioGroupEdu_2" />好</label>
+    <label><input type="radio" name="bnote[self_english]" value="流利" id="RadioGroupEdu_3" />流利</label>
+  </p>
+  <p style="margin-left:20px;">
+    <%= f.label :self_france,'法语水平' %>:
+    <label><input type="radio" name="bnote[self_france]" value="不会" id="RadioGroupEdu_0" />不会</label>
+    <label><input type="radio" name="bnote[self_france]" value="困难" id="RadioGroupEdu_1" />困难</label>
+    <label><input type="radio" name="bnote[self_france]" value="好" id="RadioGroupEdu_2" />好</label>
+    <label><input type="radio" name="bnote[self_france]" value="流利" id="RadioGroupEdu_3" />流利</label>
+  </p>
+  <p>
+    <%= f.label :mate_education,'配偶最高学历情况' %>:
+    <label><input type="radio" name="bnote[mate_education]" value="高中及以下" id="RadioGroupEdu_0" />高中及以下</label>
+    <label><input type="radio" name="bnote[mate_education]" value="大专" id="RadioGroupEdu_1" />大专</label>
+    <label><input type="radio" name="bnote[mate_education]" value="本科" id="RadioGroupEdu_2" />本科</label>
+    <label><input type="radio" name="bnote[mate_education]" value="硕士及以上" id="RadioGroupEdu_3" />硕士及以上</label>
+  </p>
+  <p style="margin-left:20px;">
+    <%= f.label :mate_english,'英语水平' %>:
+    <label><input type="radio" name="bnote[mate_english]" value="不会" id="RadioGroupEdu_0" />不会</label>
+    <label><input type="radio" name="bnote[mate_english]" value="困难" id="RadioGroupEdu_1" />困难</label>
+    <label><input type="radio" name="bnote[mate_english]" value="好" id="RadioGroupEdu_2" />好</label>
+    <label><input type="radio" name="bnote[mate_english]" value="流利" id="RadioGroupEdu_3" />流利</label>
+  </p>
+  <p style="margin-left:20px;">
+    <%= f.label :mate_france,'法语水平' %>:
+    <label><input type="radio" name="bnote[mate_france]" value="不会" id="RadioGroupEdu_0" />不会</label>
+    <label><input type="radio" name="bnote[mate_france]" value="困难" id="RadioGroupEdu_1" />困难</label>
+    <label><input type="radio" name="bnote[mate_france]" value="好" id="RadioGroupEdu_2" />好</label>
+    <label><input type="radio" name="bnote[mate_france]" value="流利" id="RadioGroupEdu_3" />流利</label>
+  </p>
+  
+  <h2 class="form_h2">Part3: 净资产(阁下及阁下配偶名下所有资产合计)</h2>
+  <p>
+    <%= f.label :asset_cash,'存款及现金:' %>人民币<%= f.text_field :asset_cash,:size=>10 %>万元
+  </p>
+  <p>
+    <%= f.label :asset_house,'房产净值(现值减去按揭款):' %>人民币<%= f.text_field :asset_house,:size=>10 %>万元
+  </p>
+  <p>
+    <%= f.label :asset_bond,'有价证券市值:' %>人民币<%= f.text_field :asset_bond,:size=>10 %>万元
+  </p>
+  <p>
+    <%= f.label :asset_company,'公司股权或企业资产净值' %>人民币<%= f.text_field :asset_company,:size=>10 %>万元
+  </p>
+  <h2 class="form_h2">Part4: 经商管理经验</h2>
+  <p style="color:green">
+    请填写主要经商管理经历，请从最近的公司开始填写<br/>
+    <b>公司一</b>
+  </p>
+  <p>
+    <%= f.label :a_started_at,'经营时间' %><br />
+    <%= f.date_select :a_started_at,:start_year=>1980,:discard_day=>true,:use_month_numbers=>true %>至
+    <%= f.date_select :a_ended_at,:start_year=>1980,:discard_day=>true,:use_month_numbers=>true %>
+  </p>
+  <p>
+    <%= f.label :a_job,'阁下的职务' %>:
+    <%= f.text_field :a_job %>
+  </p>
+  <p>
+    <%= f.label :a_revenue,'阁下的年收入' %>折合<%= f.text_field :a_revenue,:size=>10 %>万人民币
+  </p>
+  <p>
+    <%= f.label :a_company_type,'公司类型' %><br />
+    <%= f.hidden_field :a_company_type %>
+     <label><input type="checkbox" name="chkgrp_company_type"  onclick="javascript: chk_company_type();" value="国企" id="_0" />国企</label>
+    <label><input type="checkbox" name="chkgrp_company_type"  onclick="javascript: chk_company_type();" value="外企" id="_1" />外企</label>
+    <label><input type="checkbox" name="chkgrp_company_type"  onclick="javascript: chk_company_type();" value="有限责任公司" id="_2" />有限责任公司</label>
+    <label><input type="checkbox" name="chkgrp_company_type"  onclick="javascript: chk_company_type();" value="承包" id="_3" />承包</label>
+   　<label><input type="checkbox" name="chkgrp_company_type"  onclick="javascript: chk_company_type();" value="挂靠" id="_2" />挂靠</label>
+    <label><input type="checkbox" name="chkgrp_company_type"  onclick="javascript: chk_company_type();" value="独资" id="_2" />独资</label>
+     <label><input type="checkbox" name="chkgrp_company_type"  onclick="javascript: chk_company_type();" value="其它" id="_2" />其它</label>
+   <script language="javascript">
+      function chk_company_type()
+        {
+                var val="";
+                var allPropertyCheckboxs=document.getElementsByName("chkgrp_company_type");
+                for(var i=0; i<allPropertyCheckboxs.length; i++)
+                {
+                if(allPropertyCheckboxs[i].type=="checkbox")
+                {
+                     if(allPropertyCheckboxs[i].checked==true)
+                     {
+                     val=val +","+allPropertyCheckboxs[i].value;
+                     }
+                }
+                }
+                //alert(val);
+                //写入属性字段
+                document.getElementById("bnote_a_company_type").value = val;
+        }
+   </script>
+  </p>
+
+  <p style="color:green">
+    若您或配偶是公司股东，请继续填写以下栏目信息
+  </p>
+  
+  <p>
+    <%= f.label :a_registered_capital,'企业注册资金:' %>折合<%= f.text_field :a_registered_capital,:size=>10 %>万人民币
+  </p>
+  <p>
+    <%= f.label :a_stock,'所占股份比例:' %>
+    <%= f.text_field :a_stock,:size=>10 %>%
+  </p>
+  <p>
+    <%= f.label :a_sale,'企业年销售额:' %>折合<%= f.text_field :a_sale,:size=>10 %>万人民币
+  </p>
+  <p>
+    <%= f.label :a_benefit,'企业年净利润:' %>折合<%= f.text_field :a_benefit,:size=>10 %>万人民币
+  </p>
+  <p style="color:green">
+    <b>公司二</b>
+  </p>
+   <p>
+    <%= f.label :b_started_at,'经营时间' %><br />
+    <%= f.date_select :b_started_at,:discard_day=>true,:start_year=>1980,:use_month_numbers=>true %>至
+    <%= f.date_select :b_ended_at,:discard_day=>true,:start_year=>1980,:use_month_numbers=>true %>
+  </p>
+  <p>
+    <%= f.label :b_job,'阁下的职务' %><br />
+    <%= f.text_field :b_job %>
+  </p>
+  <p>
+    <%= f.label :b_revenue,'阁下的年收入' %>折合<%= f.text_field :b_revenue,:size=>10 %>万人民币
+  </p>
+  <p>
+    <%= f.label :b_company_type,'公司类型' %><br />
+    <%= f.hidden_field :b_company_type %>
+     <label><input type="checkbox" name="chkgrp_company_typeb"  onclick="javascript: chk_company_typeb();" value="国企" id="_0" />国企</label>
+    <label><input type="checkbox" name="chkgrp_company_typeb"  onclick="javascript: chk_company_typeb();" value="外企" id="_1" />外企</label>
+    <label><input type="checkbox" name="chkgrp_company_typeb"  onclick="javascript: chk_company_typeb();" value="有限责任公司" id="_2" />有限责任公司</label>
+    <label><input type="checkbox" name="chkgrp_company_typeb"  onclick="javascript: chk_company_typeb();" value="承包" id="_3" />承包</label>
+   　<label><input type="checkbox" name="chkgrp_company_typeb"  onclick="javascript: chk_company_typeb();" value="挂靠" id="_2" />挂靠</label>
+    <label><input type="checkbox" name="chkgrp_company_typeb"  onclick="javascript: chk_company_typeb();" value="独资" id="_2" />独资</label>
+     <label><input type="checkbox" name="chkgrp_company_typeb"  onclick="javascript: chk_company_typeb();" value="其它" id="_2" />其它</label>
+   <script language="javascript">
+      function chk_company_typeb()
+        {
+                var val="";
+                var allPropertyCheckboxs=document.getElementsByName("chkgrp_company_typeb");
+                for(var i=0; i<allPropertyCheckboxs.length; i++)
+                {
+                if(allPropertyCheckboxs[i].type=="checkbox")
+                {
+                     if(allPropertyCheckboxs[i].checked==true)
+                     {
+                     val=val +","+allPropertyCheckboxs[i].value;
+                     }
+                }
+                }
+                //alert(val);
+                //写入属性字段
+                document.getElementById("bnote_b_company_type").value = val;
+        }
+   </script>
+  </p>
+
+  <p style="color:green">
+    若您或配偶是公司股东，请继续填写以下栏目信息
+  </p>
+  
+  <p>
+    <%= f.label :b_registered_capital,'企业注册资金:' %>折合<%= f.text_field :b_registered_capital,:size=>10 %>万人民币
+  </p>
+  <p>
+    <%= f.label :b_stock,'所占股份比例:' %>
+    <%= f.text_field :b_stock,:size=>10  %>%
+  </p>
+  <p>
+    <%= f.label :b_sale,'企业年销售额:' %>折合<%= f.text_field :b_sale,:size=>10  %>万人民币
+  </p>
+  <p>
+    <%= f.label :b_benefit,'企业年净利润:' %>折合<%= f.text_field :b_benefit,:size=>10  %>万人民币
+  </p>
+
+  <h2 class="form_h2">Part5: 阁下需要咨询的问题：</h2>
+  <p>
+    <%= f.text_area :question,:rows=>'10',:cols=>'80',:value=>"\n\n\n\n\n\n" %>
+  </p>
+ 
+  <p>
+    <%= f.submit '提交' %>
+  </p>
+<% end %>
+</div>
+
+<% content_for :js do %>
+  <script type="text/javascript">
+    function _submit(){
+      if( validator.isPassed(1)){
+        //alert("验证通过，可以提交数据了！");
+        return true;
+      }
+      return false;
+    }
+    var validator = new MyValidator();
+    validator.addValidation(new  InputRangeCustomValidation("bnote_name","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("bnote_city","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("bnote_tel","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("bnote_question","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("bnote_tel","true",	"*必填*",
+    "<span style='color:red'>*请正确填写电话号码</span> ","default",18,28,regObj["_phone"]));
+    validator.setUp(1);
+  </script>
+<% end %>

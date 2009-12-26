@@ -1,0 +1,107 @@
+<div id="niftys" class="niftys">
+<h3 class="niftys_h3">修改内容
+<span  class="niftys_right">
+<%= link_to '返回',project_path(@item.project) %>
+|<%= link_to '添加新文章', new_item_path(:project_id =>@item.project.id)%></span>
+</h3>
+<% form_for(@item) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :project_id,'选择栏目' %><br />
+		<%= f.select :project_id, @projects.collect{|c|[ c.the_name, c.id ]}.unshift(['请选择栏目',0]), :class => 'xxx' %>
+		<br/><span style="color:#666">*默认不选则表示添加顶级栏目</span>
+  </p>
+ <p>
+    <%= f.label :title,'文章标题' %><br />
+    <%= f.text_field :title,:size=>'100'%>
+    <select id="item_title_style" name="item[title_style]"><option value="">标题颜色</option>
+      <option value="red">红色</option>
+      <option value="blue">蓝色</option>
+      <option value="green">绿色</option>
+    </select>
+  </p>
+  <p>
+    <%= f.label :stitle,'文章附标题' %><br />
+    <%= f.text_field :stitle ,:size=>'100'%>
+  </p>
+  <p>
+    <%= f.label :author,'作者|编辑' %><br />
+    <%= f.text_field :author,:size=>'60' %>
+  </p>
+  <p>
+    <%= f.label :source,'来源' %><br />
+    <%= f.text_field :source,:size=>'60' %>
+  </p>
+	 <p>
+    <%= f.label :info,'文章内容' %><br />
+		<%= fckeditor_textarea("item", "info", :toolbarSet => 'Base', :width => '750px', :height => '400px') %>
+  </p>
+  <p>
+    <%= f.label :tags,'标签' %><br />
+    <%= f.text_field :tag_list,:size=>'60' %>*多个以空格隔开
+  </p>
+  <p>
+    <%= f.label :property,'文章显示属性' %><br />
+    <%= f.hidden_field :property %>
+<label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />推荐</label>
+<label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />滚动</label>
+<label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />热点</label>
+<label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />幻灯</label>
+<label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />头条</label>
+<label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />公告</label>
+<label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />WAP</label>
+<label><input onclick="javascript: chk_property();" type="checkbox" name="CheckboxGroupProperty" value="0" id="CheckboxGroupProperty_0" />精彩</label>
+<script language="javascript">
+	function chk_property()
+	{
+			var val="";
+			var allPropertyCheckboxs=document.getElementsByName("CheckboxGroupProperty");
+			for(var i=0; i<allPropertyCheckboxs.length; i++)
+			{
+			if(allPropertyCheckboxs[i].type=="checkbox")
+			{
+				 if(allPropertyCheckboxs[i].checked==true)
+				 {
+				 val=val +"1,";
+				 }else
+				 {
+				 val=val+"0,";   
+				 }
+			}
+			}
+			//alert(val);
+			//写入属性字段
+			document.getElementById("item_property").value = val;
+	}
+</script>
+  </p>
+ 
+  <p>
+    <%= f.label :metakeywords,'关键字' %><br />
+    <%= f.text_field :metakeywords,:size=>'60' %>
+  </p>
+  <p>
+    <%= f.label :metadesc,'关键描述' %><br />
+    <%= f.text_field :metadesc,:size=>'60' %>
+  </p>
+  <p>
+    <%= f.label :is_display,'是否显示' %>:
+    <%= f.check_box :is_display %>
+  </p>
+  <p>
+    <%= f.label :is_list_top,'是否置顶' %>:
+    <%= f.check_box :is_list_top %>
+  </p>
+  <p>
+    <%= f.label :sort_id,'排序编号' %><br />
+    <%= f.text_field :sort_id %>
+		<br/>*数字越大,排在越前
+  </p>
+  <p>
+    <%= f.submit '提交' %>
+  </p>
+<% end %>
+
+<%= link_to '预览', @item %> |
+<a href="javascript:go(-1);">返回</a>
+</div>

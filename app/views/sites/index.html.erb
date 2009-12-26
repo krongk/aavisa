@@ -1,0 +1,41 @@
+<div class="note">
+	<p>
+		<b>公司名::</b>
+		<%=h @site.company_name %>
+	</p>
+
+	<p>
+		<b>网址:</b>
+		<%=h @site.site_url %>
+	</p>
+
+	<p>
+		<b>公司地址:</b>
+		<%=h @site.address %>
+	</p>
+
+	<p>
+		<b>电话:</b>
+		<%=h @site.phone %>
+	</p>
+
+	<p>
+		<b>传真:</b>
+		<%=h @site.fax %>
+	</p>
+
+	<p>
+		<b>Email:</b>
+		<%=h @site.email %>
+	</p>
+
+	<p>
+		<b>网站页脚显示内容:</b>
+		<div class="word">
+		<%= @site.site_footer %>
+	  </div>
+	</p>
+</div>
+<div class="menu">
+	<%= link_to '编辑', edit_site_path(@site) %> 
+</div>

@@ -1,0 +1,27 @@
+<%#
+# 管理界面查看items/show的效果
+%>
+<div id="niftys" class="niftys">
+<h3 class="niftys_h3"><%= @item.project.cn_name %><span class="niftys_right">
+<%= link_to '编辑', edit_item_path(@item) %>
+| <%= link_to '返回',project_path(@item.project) %>
+|<%= link_to '添加新文章', new_item_path(:project_id =>@item.project.id)%></span>
+</h3>
+<div id="new_detail">
+  <br/>
+   <h1><span style="color:<%=@item.title_style%>"><%=white_list @item.title %></span></h1>
+   <% if @item.stitle.chomp.strip !=  '' %> <h3>----<%=h @item.stitle %></h3><% end %>
+    <div id="new_bar">
+       栏目: <%= link_to @item.project.cn_name, project_path(@item.project.id) %>&nbsp;&nbsp;
+       标签：<%=h @item.tags %>&nbsp;&nbsp;&nbsp;&nbsp;
+       <span style="overflow:auto;margin:0px;padding:0px;">2009年08月11日09:33</span>
+    </div>
+    <div id="new_body">
+       <%= @item.info %>
+   </div>
+   <div class="menu">
+    <%= link_to '编辑', edit_item_path(@item) %> |
+    <A HREF="javascript:history.go(-1)">后退</A>
+   </div>
+</div>
+</div>

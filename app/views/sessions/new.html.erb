@@ -1,0 +1,30 @@
+<% form_tag session_path do -%>
+<% if flash[:notice] %>
+				<div id="layout-flash" class="note"><%=flash[:notice]%></div>
+			<% end %> 
+<table width="200px" align="center">
+  <tr>
+    <td width="80" rowspan="4"><img src="/images/manage2.png"  /></td>
+    <td width="108" height="22">
+    <%= text_field_tag 'login','输入用户名',:size=>"12",:onfocus=>"javascript:clean(this);"%>
+    </td>
+  </tr>
+  <tr>
+    <td height="22"><%= password_field_tag 'password','输入密码',:size=>"12",:onfocus=>"clean(this);" %></td>
+  </tr>
+  <tr>
+    <td height="22"><span style="margin-top:-10px;">记住我</span><%= check_box_tag 'remember_me' %>
+    <%= submit_tag '登录'%>
+    </td>
+  </tr>
+  <tr>
+    <td height="30"><%=link_to "新用户注册","/signup"%></td>
+  </tr>
+</table>
+ <% end -%>
+ <script language="javascript">
+ function clean(obj){
+   //alert(obj.value);
+   if(obj.value=="输入用户名" || obj.value=="输入密码"){obj.value="";}
+ }
+  </script>

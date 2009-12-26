@@ -1,0 +1,48 @@
+<p>
+  <b>Login:</b>
+  <%=h @site.login %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @site.password %>
+</p>
+
+<p>
+  <b>Company name:</b>
+  <%=h @site.company_name %>
+</p>
+
+<p>
+  <b>Site url:</b>
+  <%=h @site.site_url %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @site.address %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @site.phone %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%=h @site.fax %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @site.email %>
+</p>
+
+<p>
+  <b>Site footer:</b>
+  <%=h @site.site_footer %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>

@@ -1,0 +1,17 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<div id="gpc_sa">
+ <dl><dd><%= @pro_gpc_1.items.first.info.chars[0..400] -%><br/><%=link_to '浏览更多...',@pro_gpc_1.items.first -%></dd></dl>
+</div>
+
+<div class="news_list"><ul>
+<% @items.each do |item|%>
+<li><%=link_to item.title,item%></li>
+<% end %>
+</ul></div>
+
+<div class='flickr_pagination'>
+<%= will_paginate @items,:next_label=>"下一页",:previous_label=>"上一页" %>
+</div>

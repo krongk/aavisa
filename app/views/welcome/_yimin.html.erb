@@ -1,0 +1,39 @@
+<%#
+# 频道导航之移民
+%>
+<% @pro_liuxue = Project.find(:all,:conditions=>["cn_name like '移民'"],:order=>"created_at DESC") %>
+<% @pro_liuxue_guide = Project.find(:first,:conditions=>["cn_name like '移民指南'"],:order=>"created_at DESC")%>
+
+<div id="liuxue_nav">
+  <p>
+     <a href="/bnotes/new" style="float:right;margin:4px;display:block;"> <img src="/images/btn4.png"/></a>
+    &nbsp;&nbsp; &nbsp;&nbsp;亚美致力于加拿大移民服务多年,积累了丰富的经验,移民获得免面试通过的数量在行业内遥遥领先。
+    亚美拥有良好的国际移民关系,并获得加拿大RSS(加拿大最大律师事务所)以及CSIC（加拿大移民工会）的官方授权。
+  </p>
+</div>
+
+<div class="subcolumns" style="float:none;">
+  <div class="c50l">
+    <div class="subcl">
+      <h5>移民新闻</h5>
+      <ul class="home_news">
+        <% @pro_liuxue.each do |pro| %>
+          <% pro.items.find(:all,:limit=>10,:order=>"created_at desc").each do |item| %>
+            <li> <%=link_to pro.cn_name+"-| "+item.title,item,:style=>"color:#{item.title_style}"%></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="c50r">
+    <div class="subcr">
+      <h5>移民指南</h5>
+      <ul class="home_news">
+        <% items= Item.find(:all,:conditions=>["project_id =?",@pro_liuxue_guide],:order=>"created_at DESC",:limit=>10) %>
+        <% items.each do |item| %>
+         <li><%=link_to @pro_liuxue_guide.cn_name+"-| "+item.title,item,:style=>"color:#{item.title_style}"%></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  job_id: 1
+  parent_id: 1
+  title: MyString
+  location: MyString
+  number: MyString
+  experience: MyString
+  language: MyString
+  education: MyString
+  salary: MyString
+  description: MyText
+  email: MyString
+  started_at: 2009-08-05
+  ended_at: 2009-08-05
+
+two:
+  job_id: 1
+  parent_id: 1
+  title: MyString
+  location: MyString
+  number: MyString
+  experience: MyString
+  language: MyString
+  education: MyString
+  salary: MyString
+  description: MyText
+  email: MyString
+  started_at: 2009-08-05
+  ended_at: 2009-08-05

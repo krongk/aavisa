@@ -1,0 +1,122 @@
+<DIV id="myjQuery">
+	<DIV id="myjQueryContent">
+		<DIV style="z-index: 1; opacity: 1; "><A href="/school" target="_blank"><IMG src="images/slide/yaml03.jpg"></A></DIV>
+		<DIV class="smask" style="z-index: 0; opacity: 0; "><A href="/about" target="_blank"><IMG src="/images/slide/yaml04.jpg"></A></DIV>
+		<DIV class="smask" style="z-index: 0; opacity: 0; "><A href="/study" target="_blank"><IMG src="/images/slide/yaml05.jpg"></A></DIV>
+		<DIV class="smask" style="z-index: 0; opacity: 0; "><A href="/gpc" target="_blank"><IMG src="/images/slide/yaml06.jpg"></A></DIV>
+        <DIV class="smask" style="z-index: 0; opacity: 0; "><A href="/zizhi/zizi.html" target="_blank"><IMG src="/images/slide/yaml07.jpg"></A></DIV>
+</DIV>
+	<UL>
+  		<LI class="current"><A href="/school" target="_blank">1</A> </LI>
+  		<LI class=""><A href="/about" target="_blank">2</A> </LI>
+  		<LI class=""><A href="/study" target="_blank">3</A> </LI>
+  		<LI class="nbg"><A href="/gpc" target="_blank">4</A> </LI>
+        <LI class="nbg"><A href="/zizhi/zizi.html" target="_blank">5</A> </LI>
+	</UL>
+<DIV id="flow" style="left: 12px;"></DIV>
+</DIV>
+<SCRIPT type="text/javascript">
+jQuery("#myjQuery").blockSlide({
+	speed : "normal",
+	num : 5,
+	timer : 3000,
+	flowSpeed :300
+});
+</SCRIPT>
+
+<div id="ab" style="height:8px;"></div>
+<div class="channel_top">
+  <ul>
+    <li class="b">频道导航</li>
+    <li><a id="tab_title1" href="javascript:void(0);" onclick="select_tab(1);" class="active">留学</a></li>
+    <li><a id="tab_title2" href="javascript:void(0);" onclick="select_tab(2);">移民</a></li>
+    <li><a id="tab_title3" href="javascript:void(0);" onclick="select_tab(3);">国际联合办学</a></li>
+    <li><a id="tab_title4" href="javascript:void(0);" onclick="select_tab(4);">萨省商贸合作</a></li>
+    <li><a id="tab_title5" href="javascript:void(0);" onclick="select_tab(5);">亚美</a></li>
+  </ul>
+</div>
+<!--begin channel body-->
+<div id="channel_body1" class="channel_body">
+ <%=render :partial=>"liuxue"%>
+</div>
+<div id="channel_body2" class="channel_body" style="display:none; visibility:hidden;">
+ <%=render :partial=>"yimin"%>
+</div>
+<div id="channel_body3" class="channel_body"  style="display:none; visibility:hidden;">
+ <%=render :partial=>"school"%>
+</div>
+<div id="channel_body4" class="channel_body"  style="display:none; visibility:hidden;">
+ <%=render :partial=>"gpc"%>
+</div>
+<div id="channel_body5" class="channel_body"  style="display:none; visibility:hidden;">
+<%=render :partial=>"yamei"%>
+</div>
+<!--end channel body-->
+<div id="youshi">
+  <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="675" height="100" id="FlashID" title="yamei">
+    <param name="movie" value="/flash/yamei-center.swf" />
+    <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+             <!--[if !IE]>-->
+    <object type="application/x-shockwave-flash" data="/flash/yamei-center.swf" width="675" height="100">
+      <!--<![endif]-->
+      <param name="quality" value="high" />
+      <param name="wmode" value="opaque" />
+      <param name="swfversion" value="8.0.35.0" />
+      <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
+      <param name="expressinstall" value="Scripts/expressInstall.swf" />
+      <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+      <div>
+        <h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
+        <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" width="112" height="33" /></a></p>
+      </div>
+      <!--[if !IE]>-->
+    </object>
+    <!--<![endif]-->
+  </object>
+</div>
+<%=render :partial=>"layouts/search"%>
+<%=render :partial=>"layouts/friend_link"%>
+
+<% content_for :js do %>
+    <script language="javascript">
+      //显示留学栏目的按钮切换
+      function show_detail(i)
+      {
+        var dom=document.getElementById("liuxue_detail");
+        if(i==1)
+        {
+          dom.innerHTML="亚美为您提供方便快捷的出国咨询服务,无论是留学、移民，还是境外商贸合作，亚美都能为你的提问进行及时地反馈和认真的回复";
+        }else if(i==2)
+        {
+          dom.innerHTML="通过在线报名，享受我们为你提供的留学签证服务，由专门的咨询团对为你提供一站式的服务，包括选择留学国家，申请国外大学等等。还想了解更多，请点击<a href='/gnotes/new'>在线咨询</a>";
+        }else
+        {
+          dom.innerHTML="亚美为已经签约的客服提供方便的进程查询功能，方便您随时知晓案件的进程和时间。在查询进程之前，您须为完成<a href='signs/new'>在线报名</a>的注册用户";
+        }
+      }
+      //切换tab
+      function select_tab(n)
+      {
+        //hidden all tab
+        for(var i=1;i<6;i++)
+        {
+          var s="channel_body"+i;
+          var t="tab_title"+i;
+          document.getElementById(s).style.display="none";
+          document.getElementById(s).style.visibility="hidden";
+          document.getElementById(t).className="";
+        }
+        //show selected tab
+        var str="channel_body"+n;
+        var dom=document.getElementById(str);
+        dom.style.display="block";
+        dom.style.visibility="visible";
+        //show title class
+        var t="tab_title"+n;
+        var ti=document.getElementById(t);
+        ti.className="active";
+       //loop       
+      }
+       
+    </script>
+<% end %>

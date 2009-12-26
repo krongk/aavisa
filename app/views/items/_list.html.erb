@@ -1,0 +1,13 @@
+<table>
+<% items.each do |item| %>
+  <tr>
+    <th><%= item.id %></th>
+    <td width="80"><%=format_date(item.updated_at)%></td>
+    <td><%=  link_to item.title, item_path(item,:manage=>'1') %></td>
+    <td>|</td>
+    <td><%= link_to '预览', item_path(item,:manage=>'1') %></td>
+    <td><%= link_to '编辑', edit_item_path(item) %></td>
+    <td><%= link_to '删除', item, :confirm => '确定要删除吗?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

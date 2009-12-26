@@ -1,0 +1,11 @@
+<div id="niftys" class="niftys">
+<h3 class="niftys_h3">在线报名
+<span class="niftys_right"><%= link_to '返回', signs_path %></span>
+</h3>
+<% form_for(@sign) do |f| %>
+  <%=render :partial=>'form',:locals=>{:f=>f}%>
+<% end %>
+
+<%= link_to '返回', signs_path %>
+
+</div>

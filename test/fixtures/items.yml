@@ -1,0 +1,61 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  project: 
+  typo: 1
+  title: MyString
+  stitle: MyString
+  title_style: MyString
+  author: MyString
+  source: MyString
+  tags: MyString
+  property: MyString
+  info: MyText
+  metakeywords: MyString
+  metadesc: MyString
+  is_use_templet: false
+  templet: MyString
+  is_image: false
+  image_id: 1
+  image_url: MyString
+  visit_count: 1
+  digg_count: 1
+  is_comment: false
+  is_lock: false
+  is_recyle: false
+  is_html: false
+  file_path: MyString
+  is_vote: false
+  is_display: false
+  is_list_top: false
+  sort_id: 1
+
+two:
+  project: 
+  typo: 1
+  title: MyString
+  stitle: MyString
+  title_style: MyString
+  author: MyString
+  source: MyString
+  tags: MyString
+  property: MyString
+  info: MyText
+  metakeywords: MyString
+  metadesc: MyString
+  is_use_templet: false
+  templet: MyString
+  is_image: false
+  image_id: 1
+  image_url: MyString
+  visit_count: 1
+  digg_count: 1
+  is_comment: false
+  is_lock: false
+  is_recyle: false
+  is_html: false
+  file_path: MyString
+  is_vote: false
+  is_display: false
+  is_list_top: false
+  sort_id: 1

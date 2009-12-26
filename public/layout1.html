@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css"> 
+<!-- 
+body  {
+	font: 100% Verdana, Arial, Helvetica, sans-serif;
+	background: #666666;
+	margin: 0; /* it's good practice to zero the margin and padding of the body element to account for differing browser defaults */
+	padding: 0;
+	text-align: center; /* this centers the container in IE 5* browsers. The text is then set to the left aligned default in the #container selector */
+	color: #000000;
+}
+.subcolumns {
+	clear: both;
+	overflow: hidden;
+	position: static;
+	visibility: visible;
+}
+.twoColHybLtHdr #container { 
+	width: 960px;  /* this will create a container 80% of the browser width */
+	background: #FFFFFF;
+	margin: 0 auto; /* the auto margins (in conjunction with a width) center the page */
+	border: 1px solid #000000;
+	text-align: left; /* this overrides the text-align: center on the body element. */
+} 
+.twoColHybLtHdr #header { 
+	background: #DDDDDD; 
+	padding: 0 10px;  /* this padding matches the left alignment of the elements in the divs that appear beneath it. If an image is used in the #header instead of text, you may want to remove the padding. */
+} 
+.twoColHybLtHdr #header h1 {
+	margin: 0; /* zeroing the margin of the last element in the #header div will avoid margin collapse - an unexplainable space between divs. If the div has a border around it, this is not necessary as that also avoids the margin collapse */
+	padding: 10px 0; /* using padding instead of margin will allow you to keep the element away from the edges of the div */
+}
+
+/* Tips for sidebar1:
+1. Since we are working in relative units, it's best not to use padding on the sidebar. It will be added to the overall width for standards compliant browsers creating an unknown actual width. 
+2. Since em units are used for the sidebar value, be aware that its width will vary with different default text sizes.
+3. Space between the side of the div and the elements within it can be created by placing a left and right margin on those elements as seen in the ".twoColHybLtHdr #sidebar1 p" rule.
+*/
+.twoColHybLtHdr #sidebar1 {
+	float: left; 
+	width: 220px; /* since this element is floated, a width must be given */
+	background: #ffcc00; /* the background color will be displayed for the length of the content in the column, but no further */
+	padding: 15px 0; /* top and bottom padding create visual space within this div  */
+}
+.twoColHybLtHdr #sidebar1 h3, .twoColHybLtHdr #sidebar1 p {
+	margin-left: 10px; /* the left and right margin should be given to every element that will be placed in the side columns */
+	margin-right: 10px;
+}
+/* Tips for mainContent:
+1. The space between the mainContent and sidebar1 is created with the left margin on the mainContent div.  No matter how much content the sidebar1 div contains, the column space will remain. You can remove this left margin if you want the #mainContent div's text to fill the #sidebar1 space when the content in #sidebar1 ends.
+2. Be aware it is possible to cause float drop (the dropping of the non-floated mainContent area below the sidebar) if an element wider than it can contain is placed within the mainContent div. WIth a hybrid layout (percentage-based overall width with em-based sidebar), it may not be possible to calculate the exact width available. If the user's text size is larger than average, you will have a wider sidebar div and thus, less room in the mainContent div. You should be aware of this limitation - especially if the client is adding content with Contribute.
+3. In the Internet Explorer Conditional Comment below, the zoom property is used to give the mainContent "hasLayout." This may help avoid several IE-specific bugs.
+*/
+.twoColHybLtHdr #mainContent { 
+	margin: 0 20px 0 230px; /* the right margin can be given in percentages or pixels. It creates the space down the right side of the page. */
+} 
+.twoColHybLtHdr #footer { 
+	padding: 0 10px; /* this padding matches the left alignment of the elements in the divs that appear above it. */
+	background:#DDDDDD;
+} 
+.twoColHybLtHdr #footer p {
+	margin: 0; /* zeroing the margins of the first element in the footer will avoid the possibility of margin collapse - a space between divs */
+	padding: 10px 0; /* padding on this element will create space, just as the the margin would have, without the margin collapse issue */
+}
+
+/* Miscellaneous classes for reuse */
+.fltrt { /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class should be placed on a div or break element and should be the final element before the close of a container that should fully contain a float */
+	clear:both;
+    height:0;
+    font-size: 1px;
+    line-height: 0px;
+}
+--> 
+</style><!--[if IE]>
+<style type="text/css"> 
+/* place css fixes for all versions of IE in this conditional comment */
+.twoColHybLtHdr #sidebar1 { padding-top: 30px; }
+.twoColHybLtHdr #mainContent { zoom: 1; padding-top: 15px; }
+/* the above proprietary zoom property gives IE the hasLayout it may need to avoid several bugs */
+</style>
+<![endif]-->
+<link href="css/front_layout.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body class="twoColHybLtHdr">
+
+<div id="container">
+  <div id="header">
+          <div class="logo"><img src="images/logo1.jpg" alt="亚美" width="210" height="80" longdesc="http://www.aa-visa.com" /></div>
+          <div class="menu">
+            <div class="top_menu">
+              <!-- begin: main navigation #nav -->
+              <ul>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../index.html">&nbsp;&nbsp;&nbsp;留学移民</a></li>
+                <li><a href="../05_naviml">&nbsp;&nbsp;国际联合办学</a></li>
+                <li><a href="3col_advanced.html">加拿大萨省国际商贸合作</a></li>
+                <li><a href="3col_advanced.html">关于亚美</a></li>
+              </ul>
+              <!-- end: main navigation -->
+            </div>
+            <div class="sub_menu">
+
+              <ul>
+                <li>
+                  <a href="../index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                  <a href="../index.html">选择国家</a>
+                  <a href="../index.html">最新资讯</a>
+                  <a href=".@" style="margin-left:30px;">&nbsp;项目介绍</a>
+                  <a href="#" class="pad" style="margin-left:30px;"></a>
+                  <a href="3col_advanced.html" style="margin-left:10px;">萨省介绍</a>
+                  <a href="#">合作方式</a>
+                  <a href="#" class="pad" style="margin-left:30px;"></a>
+                  <a href="#">亚美介绍</a>
+                  <a href="#">案例展示</a>                </li><li>
+                  <a href="../index.html">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                  <a href="../index.html">进程喜讯</a>
+                  <a href="../index.html">申请指南</a>
+                  <a href="../ " style="margin-left:30px;">&nbsp;联办学校</a>
+                  <a href="#" class="pad" style="margin-left:30px;"></a>
+                  <a href="3col_advanced.html" style="margin-left:10px;">融资条件</a>
+                  <a href="#">成功案例</a>
+                  <a href="#" class="pad" style="margin-left:30px;"></a>
+                  <a href="#">最新活动</a>
+                <a href="#">律师团队</a></li>
+              </ul>
+            </div>
+          </div>
+    
+  <!-- end #header --></div>
+  <div id="sidebar1">
+  
+              <!-- skiplink anchor: Content -->
+              <a id="content" name="content"></a>
+              <div id="login">
+                <div class="QQmsn">
+                  <p style="margin:2px; background-color:#FFF; width:98%;">
+                  &nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="aa"><img src="images/ico/qq.png" width="22" height="20" />QQ留言</a>&nbsp;&nbsp;<a href="#" class="aa"><img src="images/ico/MSN.jpg" width="22" height="20" />MSN客服</a></p>
+                  <p align="center" style="padding:2px; margin:0px;">
+                  <img src="images/kefu-on-line.gif" width="194" height="114" /></p>
+                </div>
+                <div class="login_title">
+                  <h2>用户登录</h2>
+                </div>
+                <div class="QQmsn">
+                  <form action="">
+                    <p style="margin:0px 0px 0px 10px;"><input type="text" name="login" id="login2" value="用户名" />
+                      <br/>
+                      <input type="text" name="password" id="password" value="登录密码" />
+                      <a href="#">忘记密码?</a>
+                      <input type="submit" name="button" id="button" value="登 录"/>&nbsp;<a href="#" >注册为新用户</a>
+                    </p>
+                  </form>
+                </div>
+              </div>
+              <div id="sidebar1" class="sidebar">
+                <div class="sidebar_title">
+                  <h2>留学移民国家</h2>
+                </div>
+                <div class="sidebar_body">
+                  <ul class="cn">
+                    <li><a href="@"><img src="images/country_canada.jpg"/></a></li>
+                    <li><a href="@"><img src="images/country_america.jpg"/></a></li>
+                    <li><a href="@"><img src="images/country_england.jpg"/></a></li>
+                    <li><a href="@"><img src="images/country_franca.jpg"/></a></li>
+                    <li><a href="@"><img src="images/country_austraia.jpg"/></a></li>
+                  </ul>
+                </div>
+              </div>
+              <div id="sidebar1" class="sidebar">
+                <div class="sidebar_title">
+                  <h2>活动图集</h2>
+                </div>
+                <div class="sidebar_body">
+                  <ul class="album">
+                    <li><a href="@"><img src="images/visa_1.jpg"/></a></li>
+                    <li><a href="@"><img src="images/visa_2.jpg"/></a></li>
+                    <li><a href="@"><img src="images/visa_2.jpg"/></a></li>
+                    <li><a href="@"><img src="images/visa_3.jpg"/></a></li>
+                    <li><a href="@"><img src="images/visa_1.jpg"/></a></li>
+                    <li><a href="@"><img src="images/visa_3.jpg"/></a></li>
+                    <li><a href="@"><img src="images/visa_2.jpg"/></a></li>
+                    <li><a href="@"><img src="images/visa_1.jpg"/></a></li>
+                    <li><a href="@"><img src="images/visa_3.jpg"/></a></li>
+                  </ul>
+                </div>
+              </div>
+  <!-- end #sidebar1 --></div>
+  <div id="mainContent">
+     
+              <div id="flash_list">
+                <DIV class="container" id="idTransformView2" style="overflow-x: hidden; overflow-y: hidden; position: relative; ">
+                  <UL class="slider slider2" id="idSlider2" style="position: absolute; top: 0px; left: 0px; ">
+                    <LI><A href="http://www.p"><IMG src="images/slide/yaml01.png"></A></LI>
+                    <LI><A href="http:tel.asp"><IMG src="images/slide/yaml02.png"></A></LI>
+                    <LI><A href="htp"><IMG src="images/slide/yaml03.png"></A></LI>
+                  </UL>
+                  <UL class="num" id="idNum12">
+                    <LI class="on">1</LI>
+                    <LI class="">2</LI>
+                    <LI class="">3</LI>
+                  </UL>
+                </DIV>
+              </div>
+              <div class="channel_top">
+                <ul>
+                  <li class="b">频道导航</li>
+                  <li><a id="tab_title1" href="javascript:void(0);" onclick="select_tab(1);" class="active">留学</a></li>
+                  <li><a id="tab_title2" href="javascript:void(0);" onclick="select_tab(2);">移民</a></li>
+                  <li><a id="tab_title3" href="javascript:void(0);" onclick="select_tab(3);">国际联合办学</a></li>
+                  <li><a id="tab_title4" href="javascript:void(0);" onclick="select_tab(4);">萨省商贸合作</a></li>
+                  <li><a id="tab_title5" href="javascript:void(0);" onclick="select_tab(5);">亚美</a></li>
+                </ul>
+              </div>
+              <!--begin channel body-->
+              <div id="channel_body1" class="channel_body">
+                <div id="liuxue_nav">
+                  <b class="big_number">1.</b><a href="@" onmouseover="show_detail(1);"><img src="images/btn1.png"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <b class="big_number">2.</b><a href="@" onmouseover="show_detail(2);"><img src="images/btn2.png"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  <b class="big_number">3.</b><a href="@" onmouseover="show_detail(3);"><img src="images/btn3.png"/></a>
+                  <p id="liuxue_detail">通过在线报名，享受我们为你提供的留学签证服务，由专门的咨询团对为你提供一站式的服务，包括选择留学国家，申请国外大学等等。还想了解更多，请点击<a href='#'>在线咨询</a></p>
+                </div>
+
+                <div class="subcolumns">
+                  <div class="c50l">
+                    <div class="subcl">
+                      <h5>新 闻</h5>
+                      <ul class="home_news">
+                        <li><a href="#" ><span class="red">-美国 | 奥克兰大学预科课程火热引发布</span></a></li>
+                        <li><a href="#">-资讯 | 美国留学2009新政策发布</a></li>
+                        <li><a href="#">-澳大利亚 | 美国留学2009新政策发布</a></li>
+                        <li><a href="#" ><span class="red">-美国 | 新西兰各大城市介绍 </span></a></li>
+                        <li><a href="#">-英国 | 美国留学2009新政策发布</a></li>
+                        <li><a href="#">-法国 | 中国教育部承认的新西兰学校名单 发布</a></li>
+                        <li><a href="#">-资讯 | 美国留学2009新政策发布</a></li>
+                        <li><a href="#">-澳大利亚 | 美国留学2009新政策发布</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="c50r">
+                    <div class="subcr">
+                      <h5>留学指南</h5>
+                      <ul class="home_news">
+                        <li><a href="#">-美国 | 美国留学2009新政策发布</a></li>
+                        <li><a href="#">-法国 | 100%免中介费办理入学手续和留学签证发布</a></li>
+                        <li><a href="#"><span class="red">-澳大利亚 | 新西兰留学资深专家全程贴心指导发布</span></a></li>
+                        <li><a href="#" >-美国 | 美国留学2009新政策发布</a></li>
+                        <li><a href="#">-美国 | 在线申请全中文指导不需要填写英文表格</a></li>
+                        <li><a href="#">-美国 | 美国留学2009新政策发布</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="channel_body2" class="channel_body" style="display:none; visibility:hidden;">
+                <p>body2</p>
+
+              </div>
+              <div id="channel_body3"  style="display:none; visibility:hidden;">
+                <p>body3</p>
+                <p>body3</p><p>body3</p><p>body3</p>
+              </div>
+              <div id="channel_body4" style="display:none; visibility:hidden;">
+                <p>body4</p>
+
+              </div>
+              <div id="channel_body5"  style="display:none; visibility:hidden;">
+                <p>body5</p><p>body5</p><p>body5</p><p>body5</p>
+
+              </div>
+              <!--end channel body-->
+              <div id="youshi">
+                <object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" width="675" height="100" id="FlashID" title="yamei">
+                  <param name="movie" value="flash/yamei-center.swf" />
+                  <!-- Next object tag is for non-IE browsers. So hide it from IE using IECC. -->
+             <!--[if !IE]>-->
+                  <object type="application/x-shockwave-flash" data="flash/yamei-center.swf" width="675" height="100">
+                    <!--<![endif]-->
+                    <param name="quality" value="high" />
+                    <param name="wmode" value="opaque" />
+                    <param name="swfversion" value="8.0.35.0" />
+                    <!-- This param tag prompts users with Flash Player 6.0 r65 and higher to download the latest version of Flash Player. Delete it if you don’t want users to see the prompt. -->
+                    <param name="expressinstall" value="Scripts/expressInstall.swf" />
+                    <!-- The browser displays the following alternative content for users with Flash Player 6.0 and older. -->
+                    <div>
+                      <h4>Content on this page requires a newer version of Adobe Flash Player.</h4>
+                      <p><a href="http://www.adobe.com/go/getflashplayer"><img src="http://www.adobe.com/images/shared/download_buttons/get_flash_player.gif" alt="Get Adobe Flash player" width="112" height="33" /></a></p>
+                    </div>
+                    <!--[if !IE]>-->
+                  </object>
+                  <!--<![endif]-->
+                </object>
+              </div>
+              <div id="search">
+                <form action="search" method="get" name="search_form">
+                  <span class="blank">china@aa-visa.com</span>
+                  <input name="q" type="text" value="输入搜索字段" style="color:#666;" />
+                  <select name="project">
+                    <option value="0">留学</option>
+                    <option value="0">移民</option>
+                    <option value="0">办学</option>
+                  </select>
+                  <input name="搜索" type="button" value="搜 索 " class="red_btn" />
+
+                </form>
+              </div>
+  
+	<!-- end #mainContent --></div>
+	<!-- This clearing element should immediately follow the #mainContent div in order to force the #container div to contain all child floats -->
+	<br class="clearfloat" />
+	<div id="footer">
+    <p>Footer</p>
+  <!-- end #footer --></div>
+<!-- end #container --></div>
+</body>
+</html>
+
+

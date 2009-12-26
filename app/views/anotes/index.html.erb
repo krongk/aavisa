@@ -1,0 +1,39 @@
+<h3 class="niftys_h3">留学-在线评估</h3>
+
+<% @anotes.each do |anote| %>
+  <div class="note_list">
+    <div class="title"><span class="id"><%=h anote.id %>.</span>
+      <%=h anote.name %> &nbsp;|&nbsp; <%=h anote.tel %>  &nbsp;|&nbsp; 
+      <%=h anote.phone %>  &nbsp;|&nbsp; <%=h anote.birth %>  &nbsp;|&nbsp; <%=h anote.email %>
+      <span class="note_menu">
+        回复:
+        <%if anote.is_reply%>
+          <%=link_to image_tag("/images/yes1.gif"),"javascript:void(0);",
+            :onclick=>remote_function(:update=>"reply#{anote.id}",:with=>"'id=#{anote.id}'",
+            :url=>{:action=>:reply}) %>
+        <%else%>
+          <%=link_to image_tag("/images/no1.gif"),"javascript:void(0);",
+            :onclick=>remote_function(:update=>"reply#{anote.id}",:with=>"'id=#{anote.id}'",
+            :url=>{:action=>:reply}) %>
+        <%end%>
+        显示:<%if anote.is_display %><img src="/images/yes1.gif" /><%else%><img src="/images/no1.gif"/><%end%>
+        <%= link_to image_tag("/images/delete1.gif"), anote, :confirm => '确定要删除?', :method => :delete %>
+    </span></div>
+    <div class="question">
+      <%=h anote.question %>
+    </div>
+    <div id="reply<%=anote.id%>">
+      <% if anote.is_reply %>
+        <div class="answer">
+          <%=h anote.replyer %>:
+          <%=h anote.answer %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class='flickr_pagination'>
+  <%= will_paginate @anotes,:next_label=>"下一页",:previous_label=>"上一页" %>
+  <div clas="page_info"><%= page_entries_info @anotes %> </div>
+</div>

@@ -1,0 +1,39 @@
+<h3 class="niftys_h3">有问必答</h3>
+
+<% @gnotes.each do |gnote| %>
+  <div class="note_list">
+    <div class="title"><span class="id"><%=h gnote.id %>.</span>
+      <%=h gnote.name %> &nbsp;|&nbsp; <%=h gnote.tel %>  &nbsp;|&nbsp; 
+      <%=h gnote.phone %>  &nbsp;|&nbsp; <%=h gnote.birth %>  &nbsp;|&nbsp; <%=h gnote.email %>
+      <span class="note_menu">
+        回复:
+        <%if gnote.is_reply%>
+          <%=link_to image_tag("/images/yes1.gif"),"javascript:void(0);",
+            :onclick=>remote_function(:update=>"reply#{gnote.id}",:with=>"'id=#{gnote.id}'",
+            :url=>{:action=>:reply}) %>
+        <%else%>
+          <%=link_to image_tag("/images/no1.gif"),"javascript:void(0);",
+            :onclick=>remote_function(:update=>"reply#{gnote.id}",:with=>"'id=#{gnote.id}'",
+            :url=>{:action=>:reply}) %>
+        <%end%>
+        显示:<%if gnote.is_display %><img src="/images/yes1.gif" /><%else%><img src="/images/no1.gif"/><%end%>
+        <%= link_to image_tag("/images/delete1.gif"), gnote, :confirm => '确定要删除?', :method => :delete %>
+    </span></div>
+    <div class="question">
+      <%=h gnote.question %>
+    </div>
+    <div id="reply<%=gnote.id%>">
+      <% if gnote.is_reply %>
+        <div class="answer">
+          <%=h gnote.replyer %>:
+          <%=h gnote.answer %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+<div class='flickr_pagination'>
+  <%= will_paginate @gnotes,:next_label=>"下一页",:previous_label=>"上一页" %>
+  <div clas="page_info"><%= page_entries_info @gnotes %> </div>
+</div>

@@ -1,0 +1,37 @@
+<!--begin channel body-->
+<div  class="page2_body">
+<div class="page2_title">
+<h3 class="niftys_h3"><%= @pro_gpc.items.first.title %></h3>
+ <%= @pro_gpc.items.first.info %>
+</div>
+
+
+  <div class="subcolumns">
+    <div class="c50l">
+      <div class="subcl">
+        <h5>萨省介绍</h5>
+        <ul class="home_news">
+          <% @pro_gpc_1.items.find(:all,:order=>"created_at desc",:limit=>4).each do |item|%>
+             <li><%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+          <% end %>
+          <% @pro_gpc_2.items.find(:all,:order=>"created_at desc",:limit=>8).each do |item|%>
+             <li><%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="c50r">
+      <div class="subcr">
+        <h5>商贸合作服务</h5>
+        <ul class="home_news">
+          <% @pro_gpc_3.items.find(:all,:order=>"created_at desc",:limit=>4).each do |item|%>
+             <li><%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+          <% end %>
+          <% @pro_gpc_4.items.find(:all,:order=>"created_at desc",:limit=>8).each do |item|%>
+             <li><%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

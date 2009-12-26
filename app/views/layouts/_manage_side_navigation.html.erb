@@ -1,0 +1,16 @@
+<h3 class="niftys_h3">项目菜单
+  <a href="/projects" ><span class="niftys_right">管理菜单</span></a>
+</h3>
+<div id="project_menu">
+  <ul>
+    <li class="top"><a href="#">在线咨询管理</a>
+      <ul>
+        <li><a href="/gnotes">有问必答</a></li>
+        <li><a href="/anotes">留学咨询</a></li>
+        <li><a href="/bnotes">移民咨询</a></li>
+      </ul>
+    </li>
+    <li class="top"><a href="/signs">签约进程管理</a></li>
+  </ul>
+  <%= display_categories(Project.all) %>
+</div>

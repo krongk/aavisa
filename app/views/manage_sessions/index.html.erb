@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+#container {
+ margin:0 auto;
+	text-align: center;
+	background-image: url(/images/manage_login.png);
+	background-repeat: no-repeat;
+	height: 480px;
+    width:640px;
+    padding-top:30px;
+}
+#body {
+  margin:100px auto;
+  width:300px;
+  height:200px;
+  font-size: 14px;
+	font-weight: bold;
+	width: 300px;
+	text-align: left;
+	vertical-align: top;
+	margin-top: 200px;
+	border: 1px solid #002072;
+	padding: 10px;
+}
+body {
+	margin: 0px;
+	padding: 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+<div id="container">
+  <div id="body">
+<% form_tag manage_session_path do -%>
+<p><label for="login">登录名</label><br/>
+<%= text_field_tag 'login' %></p>
+
+<p><label for="password">密码</label><br/>
+<%= password_field_tag 'password' %></p>
+
+<!-- Uncomment this if you want this functionality
+<p><label for="remember_me">Remember me:</label>
+<%= check_box_tag 'remember_me' %></p>
+-->
+
+<p><%= submit_tag '登 录' %></p>
+<% end -%>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<div class="subcolumns">
+  <div class="c50l">
+    <div class="subcl">
+      <h5>加拿大</h5>
+      <ul class="home_news">
+        <% @canada.items.find(:all,:order=>"created_at DESC",:limit=>4).each do |item| %>
+          <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+        <% end %>
+        <%  projects =Project.find(:all,:conditions=>["parent_id = ?",@canada.id])  %>
+        <% projects.each do |pro| %>
+          <% pro.items.find(:all,:order=>"created_at DESC",:limit=>8).each do |item| %>
+            <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="c50r">
+    <div class="subcr">
+      <h5>美国</h5>
+      <ul class="home_news">
+        <% @america.items.find(:all,:order=>"created_at DESC",:limit=>4).each do |item| %>
+          <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+        <% end %>
+        <% projects =Project.find(:all,:conditions=>["parent_id = ?",@america.id])  %>
+        <% projects.each do |pro| %>
+          <% pro.items.find(:all,:order=>"created_at DESC",:limit=>8).each do |item| %>
+            <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="subcolumns">
+   <div class="c50l">
+    <div class="subcl">
+      <h5>英国</h5>
+      <ul class="home_news">
+        <% @england.items.find(:all,:order=>"created_at DESC",:limit=>4).each do |item| %>
+          <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+        <% end %>
+        <%  projects =Project.find(:all,:conditions=>["parent_id = ?",@england.id])  %>
+        <% projects.each do |pro| %>
+          <% pro.items.find(:all,:order=>"created_at DESC",:limit=>8).each do |item| %>
+            <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="c50r">
+    <div class="subcr">
+      <h5>法国</h5>
+      <ul class="home_news">
+        <% @france.items.find(:all,:order=>"created_at DESC",:limit=>4).each do |item| %>
+          <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+        <% end %>
+        <%  projects =Project.find(:all,:conditions=>["parent_id = ?",@france.id])  %>
+        <% projects.each do |pro| %>
+          <% pro.items.find(:all,:order=>"created_at DESC",:limit=>8).each do |item| %>
+            <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="subcolumns">
+   <div class="c50l">
+    <div class="subcl">
+      <h5>澳大利亚</h5>
+      <ul class="home_news">
+        <% @australia.items.find(:all,:order=>"sort_id desc,updated_at DESC",:limit=>4).each do |item| %>
+          <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+        <% end %>
+        <%  projects =Project.find(:all,:conditions=>["parent_id = ?",@australia.id])  %>
+        <% projects.each do |pro| %>
+          <% pro.items.find(:all,:order=>"sort_id desc,created_at DESC",:limit=>8).each do |item| %>
+            <li><%=link_to item.title, item,:style=>"color:#{item.title_style}" %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="c50r">
+    <div class="subcr">
+     
+    </div>
+  </div>
+</div>

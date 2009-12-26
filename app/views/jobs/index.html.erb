@@ -1,0 +1,27 @@
+<h1>工作列表</h1>
+
+<table>
+  <tr>
+    <th>职位名称</th>
+    <th>工作地点</th>    
+		<th>发布日期</th>
+    <th>截止日期</th>
+    <th>招聘人数</th>
+  </tr>
+
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= link_to job.title, job_path(job.job_id) %></td>
+    <td><%=h job.location %></td>
+		 <td><%=h job.started_at %></td>
+    <td><%=h job.ended_at %></td>
+    <td><%=h job.number %></td> 
+    <td><%= link_to 'Edit', edit_job_path(job.job_id) %></td>
+    <td><%= link_to 'Destroy', job_path(job.job_id), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New job', new_job_path %>

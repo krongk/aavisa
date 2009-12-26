@@ -1,0 +1,19 @@
+<div id="niftys" class="niftys">
+<h3 class="niftys_h3"><%= @project.cn_name %>
+<%= link_to '添加新文章', new_item_path(:project_id =>@project.id),:class=>'niftys_right'%>
+</h3>
+
+<div class="info">
+  <%= link_to '修改', edit_project_path(@project) %> 
+  <b>栏目名称:</b>
+  <%=h @project.cn_name %>
+  <b>英文名称:</b>
+  <%=h @project.en_name %>
+  <b>栏目链接地址:</b>
+  <%=h @project.url %>
+  <b>是否显示:</b>
+  <%=h yes_or_no(@project.is_display) %>
+</div>
+
+<%=render :partial=>'items/list', :locals=>{:items=>@project.items,:redirect_url=>"projects/#{@project.id}"} %>
+</div>

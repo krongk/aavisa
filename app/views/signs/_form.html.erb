@@ -1,0 +1,172 @@
+<%= f.error_messages %>
+<% if  controller.action_name =='new' %>
+  <%=f.hidden_field :user_id, :value=>(current_user.id if current_user)%>
+<% elsif current_manage %>
+  <div class="important">
+    <p>
+      <% if @sign.is_contract %>
+        目前状态为:<span style="padding:4px;font-size:1.1em;color:red;">已签约</span>&nbsp;修改为:
+        <select name="sign[is_contract]">
+          <option value="<%=@sign.is_contract%>">请选择</option>
+          <option value="0">未签约</option>
+          <option value="1">已签约</option>
+        </select>
+        <%= f.submit '修 改'%>
+      <% else %>
+        目前状态为:<span style="padding:4px;font-size:1.1em;color:red;">未签约</span>, &nbsp;修改为:
+        <select name="sign[is_contract]">
+          <option value="<%=@sign.is_contract%>">请选择</option>
+          <option value="1">已签约</option>
+          <option value="0">未签约</option>
+        </select>
+        <%= f.submit '保 存' %>
+      <% end %>
+    </p>
+    <p>
+      <%= f.label :record_code,'档案编号' %><br />
+      <%= f.text_field :record_code,:readonly=>true %> *签约以后,该档案编号自动生成
+    </p>
+    <p>
+      <%= f.label :memo,'进程备注' %><br />
+      <%= f.text_area :memo, :rows=>8,:cols=>80 %>
+    </p>
+    <p>设置该信息的有效性为:<span style="padding:4px;font-size:1.2em;color:red;"><%=yes_or_no(@sign.is_valid) %></span>,修改为:
+      <select name="sign[is_valid]">
+        <option value="<%=@sign.is_valid%>">请选择</option>
+        <option value="1">有效</option>
+        <option value="0">无效</option>
+      </select>
+    </p>
+    <p>目前的进程状态为:<span style="padding:4px;font-size:1.2em;color:red;"><%=@sign.step%></span>,&nbsp;修改为:
+      <select name="sign[step]">
+        <option value="<%=@sign.step%>">请选择</option>
+        <option value="1">1咨询</option>
+        <option value="2">2已签约</option>
+        <option value="3">3做方案</option>
+        <option value="4">4提供材料</option>
+        <option value="5">5申请学校</option>
+        <option value="6">6做签证</option>
+        <option value="7">7送签</option>
+        <option value="8">8体检表</option>
+        <option value="9">9签证材料退回</option>
+      </select>
+
+      <%= f.submit ' 保   存 '%>
+    </p>
+  </div>
+<% end %>
+<h2 class="form_h2">Part1: 个人基本信息</h2>
+<p>
+  <%= f.label :name,'姓名' %><br />
+  <%= f.text_field :name %> *请输入你的真实姓名
+</p>
+<p>
+  <%= f.label :sex,'性别' %>:
+  <input type="radio" name="sign[sex]" value="男" id="RadioGroup1_0" checked="true" />男 &nbsp;
+  <input type="radio" name="sign[sex]" value="女" id="RadioGroup1_1" />女
+</p>
+<p>
+  <%= f.label :birth,'出生年月' %><br />
+  <%= f.date_select :birth,:start_year=>1960,:use_month_numbers=>true %>
+</p>
+<p>
+  <%= f.label :birth_address,'出生地' %><br />
+  <%= f.text_field :birth_address %> *请输入你出生的城市,如:成都
+</p>
+<p>
+  <%= f.label :marry,'婚否' %>:
+  <input type="radio" name="sign[marry]" value="已婚" id="RadioGroup1_0" />已婚 &nbsp;
+  <input type="radio" name="sign[marry]" value="未婚" id="RadioGroup1_1" />未婚 &nbsp;
+  <input type="radio" name="sign[marry]" value="离异" id="RadioGroup1_2" />离异 &nbsp;
+</p>
+<p>
+  <%= f.label :tel,'联系电话' %><br />
+  <%= f.text_field :tel %> *请输入固定电话,以方便联系,如:028-88888888
+</p>
+<p>
+  <%= f.label :phone,'手机' %><br />
+  <%= f.text_field :phone %> *请输入你的手机号码,如: 15988888888
+</p>
+<p>
+  <%= f.label :qq,'QQ/MSN' %><br />
+  <%= f.text_field :qq %> *请输入你常用的即时通讯联系方式,以方便网上咨询
+</p>
+<p>
+  <%= f.label :fax,'传真' %><br />
+  <%= f.text_field :fax %> *请输入传真号码
+</p>
+<p>
+  <%= f.label :address,'联络地址' %><br />
+  <%= f.text_field :address %> *请输入固定通讯地址
+</p>
+<p>
+  <%= f.label :zip,'邮政编码' %><br />
+  <%= f.text_field :zip %> *请输入与通讯地址对应的邮政编码
+</p>
+<h2 class="form_h2">Part2: 学历及经历</h2>
+<p>
+  <%= f.label :edu_exprience,'学历' %><br />
+  <%= f.text_area :edu_exprience,:rows=>6,:cols=>80 ,:value=>"\n\n\n\n\n\n"%>
+</p>
+<p>
+  <%= f.label :work_exprience,'工作经验' %><br />
+  <%= f.text_area :work_exprience,:rows=>6,:cols=>80,:value=>"\n\n\n\n\n\n" %>
+</p>
+<p>
+  <%= f.label :language,'外语成绩:' %>
+  <select name="sign[language]">
+    <option value="GMAT">GMAT</option>
+    <option value="GRE">GRE</option>
+    <option value="TOEFL">TOEFL</option>
+    <option value="其它">其它</option>
+  </select>
+  <%= f.text_field :language_record %>
+
+  <%= f.label :exam_date,'参加考试时间:' %>
+  <%= f.date_select :exam_date,:start_year=>2000,:use_month_numbers=>true,:discard_day=>true %>
+</p>
+<h2 class="form_h2">Part3: 申请加拿大院校</h2>
+<p>
+  <%= f.label :a_school,'学校名称:' %>
+  <%= f.text_field :a_school,:size=>'100' %>
+</p>
+<p>
+  <%= f.label :a_major,'专业1:' %>
+  <%= f.text_field :a_major %>
+
+  <%= f.label :a_edu,'学历:' %>
+  <%= f.text_field :a_edu,:size=>'24' %>
+
+  <%= f.label :a_year,'学年:' %>
+  <%= f.text_field :a_year,:size=>'24' %>
+</p>
+<p>
+  <%= f.label :b_major,'专业2:' %>
+  <%= f.text_field :b_major %>
+
+  <%= f.label :b_edu,'学历:'%>
+  <%= f.text_field :b_edu,:size=>'24' %>
+
+  <%= f.label :b_year,'学年:' %>
+  <%= f.text_field :b_year,:size=>'24' %>
+</p>
+<p>
+  <%= f.label :begin_date,'希望开学日期:' %>
+  <%= f.date_select :begin_date,:use_month_numbers=>true,:discard_day=>true %>
+</p>
+<p>
+  <%= f.label :language_type,'外文种类' %>:
+  <input type="radio" name="sign[language_type]" value="英文" id="RadioGroup1_0" />英文 &nbsp;
+  <input type="radio" name="sign[language_type]" value="法文" id="RadioGroup1_1" />法文
+</p>
+<p>
+  <%= f.label :language_degree,'外文程度' %>:
+  <input type="radio" name="sign[language_degree]" value="高级" id="RadioGroup1_0" />高级 &nbsp;
+  <input type="radio" name="sign[language_degree]" value="中高级" id="RadioGroup1_1" />中高级&nbsp;
+  <input type="radio" name="sign[language_degree]" value="中级" id="RadioGroup1_0" />中级 &nbsp;
+  <input type="radio" name="sign[language_degree]" value="初中级" id="RadioGroup1_1" />初中级&nbsp;
+  <input type="radio" name="sign[language_degree]" value="初级" id="RadioGroup1_1" />初级
+</p>
+<p>
+  <%= f.submit '提 交' %>
+</p>

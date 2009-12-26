@@ -1,0 +1,94 @@
+<h3 class="niftys_h3">所有文章列表</h3>
+<div style="padding:20px">
+标签: <% tag_cloud @tags, %w(css1 css2 css3 css4) do |tag, css_class| %>
+			<%= link_to tag.name, {:action => :tag, :id => tag.name }, :class => css_class %>
+     <% end %>
+</div>
+<table id='details'>
+<% @items.each do |item| %>
+  <% pro_name= item.project.cn_name unless item.project == nil%>
+  <tr>
+    <td width="60"><%=link_to pro_name, project_path(item.project.id)%></td>
+    <td width="30"><%=item.sort_id%></td>
+    <td width="80"><%=format_date(item.updated_at)%></td>
+    <td><%=link_to item.title, item_path(item) %></td>
+    <td><a href="#" onclick="show_dialog()">添加图片</a></td>
+    <td><%= link_to '预览', item_path(item) %></td>
+    <td><%= link_to '编辑', edit_item_path(item.id) %></td>
+    <td><%= link_to '删除', item, :confirm => '是否要删除?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class='flickr_pagination'>
+  <%= will_paginate @items,:next_label=>"下一页",:previous_label=>"上一页" %>
+  <div clas="page_info"><%= page_entries_info @items %> </div>
+</div>
+
+<div id="alert" style="display:none;">
+<h4><span>添加图片</span><span id="close">关闭</span></h4>
+<% form_for(@photo,:html=>{:multipart=>true}) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.hidden_field :table_name %>
+    <%= f.hidden_field :parent_id %>
+  </p>
+  <p>
+    <%= f.label :title,'图片名称' %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :image,'选择地址' %><br />
+    <%# f.file_column_field :image %>
+		<%=file_column_field 'photo','image' %>
+  </p>
+		 <p>
+    <%= f.label :tags,'标签' %><br />
+    <%= f.text_field :tag_list %>*多个以","隔开
+  </p>
+  <p>
+    <%= f.submit '提交' %>
+  </p>
+<% end %>
+</div>
+
+<script type="text/javascript">
+var myAlert = document.getElementById("alert");
+var mClose = document.getElementById("close");
+function show_dialog()
+{
+myAlert.style.display = "block";
+myAlert.style.position = "absolute";
+myAlert.style.top = "50%";
+myAlert.style.left = "50%";
+myAlert.style.marginTop = "-75px";
+myAlert.style.marginLeft = "-150px";
+mybg = document.createElement("div");
+mybg.setAttribute("id","mybg");
+mybg.style.background = "#000";
+mybg.style.width = "100%";
+mybg.style.height = "100%";
+mybg.style.position = "absolute";
+mybg.style.top = "0";
+mybg.style.left = "0";
+mybg.style.zIndex = "500";
+mybg.style.opacity = "0.3";
+mybg.style.filter = "Alpha(opacity=30)";
+document.body.appendChild(mybg);
+document.body.style.overflow = "hidden";
+}
+mClose.onclick=function(){
+myAlert.style.display = "none";
+mybg.style.display = "none";
+}
+</script>
+<style type="text/css">
+#alert {border:1px solid #369;width:300px;height:300px;background:#e2ecf5;z-index:1000;position:absolute;display:none;}
+#alert h4 {height:20px;background:#369;color:#fff;padding:5px 0 0 5px;}
+#alert h4 span {float:left;}
+#alert h4 span#close {float:right;font-weight:500;cursor:pointer;}
+#alert p {padding:12px 0 0 30px;}
+#alert p input {width:120px;margin-left:20px;}
+#alert p input.myinp {border:1px solid #ccc;height:16px;}
+#alert p input.sub {width:60px;margin-left:30px;}
+</style>

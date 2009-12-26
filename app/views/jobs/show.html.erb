@@ -1,0 +1,40 @@
+<h2>
+  <%=h @job.title %>
+</h2>
+
+<table>
+	<tr>
+		<td>发布日期:</td>
+		<td><%=h @job.started_at %></td>
+		<td>工作地点:</td>
+		<td><%=h @job.location %></td>
+		<td>招聘人数:</td>
+		<td><%=h @job.number %></td>
+	</tr>
+	<tr>
+		<td>工作经验:</td>
+		<td><%=h @job.experience %></td>
+		<td>外语要求:</td>
+		<td><%=h @job.language %></td>
+		<td>学 历:</td>
+		<td><%=h @job.education %></td>
+	</tr>
+	<tr>
+		<td>薪水范围:</td>
+		<td><%=h @job.salary %></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tr>
+</table>
+<h2>职位描述</h2>
+<div class="word">
+  <%= @job.description %>
+</div>
+<h2>联系方式</h2>
+<p>
+  <%=h @job.email %>
+</p>
+
+<%= link_to '返回', jobs_path %>

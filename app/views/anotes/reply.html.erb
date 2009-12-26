@@ -1,0 +1,20 @@
+<%#
+# 回复留言
+# and open the template in the editor.
+%>
+<hr/>
+<% form_for(@anote) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :is_reply,:value=>true %>
+  <p>
+    <%= f.label :replyer,'回复人：'%>
+    <%= f.text_field :replyer %><br/>
+    <%= f.label :answer,'回答内容' %><br />
+    <%= f.text_area :answer,:cols=>85,:rows=>6 %>
+  </p>
+  <p>
+    <%= f.label :is_display,'是否显示到前台' %>
+    <%= f.check_box :is_display %><br />
+    <%= f.submit '提交' %>
+  </p>
+<% end  %>

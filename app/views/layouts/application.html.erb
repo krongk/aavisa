@@ -1,0 +1,69 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>成都亚美经济文化</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="description" content="成都亚美经济文化发展有限公司,专业的出国留学移民综合门户，包括澳大利亚留学移民、美国留学移民、英国留学移民、加拿大留学移民、法国留学移民等留学移民信息，留学专家免费在线咨询，海外院校驻华代表，海外名校中文网站，世界名校留学介绍" />
+    <meta name="keywords" content="出国留学,澳大利亚留学,美国留学,英国留学,加拿大留学,留学咨询,留学,移民,加拿大移民,萨省国际商贸,加拿大萨省,国际联合办学,成都亚美经济文化,亚美,aa-visa" />
+    <!--/////////home.html.erb////显示广告轮番播放 -->
+    <% if controller.action_name=="home" %>
+      <%=stylesheet_link_tag "/js/blockSlide"%>
+      <%=javascript_include_tag "/js/lib/jquery-1.3.min.js","/js/blockSlide" %>
+    <% end %>
+    <%=javascript_include_tag :defaults,'validator',"nifty/niftycube"%>
+    <%=stylesheet_link_tag "/javascripts/nifty/niftyCorners","/css/front_layout"%>
+
+    <!--[if IE]>
+    <style type="text/css">
+      /* place css fixes for all versions of IE in this conditional comment */
+      .twoColHybLtHdr #sidebar1 { padding-top: 30px; }
+      .twoColHybLtHdr #mainContent { zoom: 1; padding-top: 15px; }
+      /* the above proprietary zoom property gives IE the hasLayout it may need to avoid several bugs */
+    </style>
+    <![endif]-->
+    <!--[if lte IE 7]>
+      <link href="css/patches/patch.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+    <script type="text/javascript">
+      Event.observe(window,'load',function(){
+        Nifty("DIV.top_menu","top");
+        //Nifty("DIV.sub_menu","bottom");
+
+        Nifty("DIV.QQmsn","small");
+        Nifty("DIV.QQmsn P","small");
+        Nifty("DIV.login_title","top");
+        Nifty("DIV.login_form","bottom");
+
+        Nifty("DIV.sidebar_title","top");
+        Nifty("DIV.sidebar_body","bottom");
+
+        Nifty("DIV#search","small,same-height");
+        Nifty("DIV.subcolumns h5","small");
+
+        Nifty("DIV.niftys")
+        Nifty("H3.niftys_h3","top")
+        ////////////////////////home.html.erb//
+<% if controller.action_name=="home" %>
+      Nifty("DIV.channel_top","top");
+<% end %>
+  });
+    </script>
+  </head>
+  <body class="twoColHybLtHdr">
+    <div id="container">
+      <div id="header"><%=render :partial=>"layouts/header"%></div>
+      <div id="sidebar1">
+        <%if controller.controller_name=="items" %>
+          <%=render :partial=>"layouts/sidebar_detail"%>
+        <% else %>
+          <%=render :partial=>"layouts/sidebar"%>
+        <% end %>
+      </div>
+      <div id="mainContent"><%= yield %></div>
+      <br class="clearfloat" />
+      <div id="footer"><%=render :partial=>"layouts/footer"%></div>
+    </div>
+  </body>
+</html>
+<%= yield :js %>

@@ -1,0 +1,128 @@
+
+<div id="niftys" class="niftys">
+ <h2 class="form_h2">&nbsp;&nbsp;留学--在线评估</h2>
+<% form_for(@anote,:html=>{:onsubmit=>'return _submit();'}) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name,'姓名' %><br />
+    <%= f.text_field :name %>,为了准确把握您的信息，这里务必填写您的真实姓名
+  </p>
+  <p>
+    <%= f.label :tel,'电话' %><br />
+    <%= f.text_field :tel %>方便我们及时能联系到您,格式如:028-88888888
+  </p>
+  <p>
+    <%= f.label :phone,'手机' %><br />
+    <%= f.text_field :phone %>*在左侧填写您的手机号码
+  </p>
+  <p>
+    <%= f.label :birth,'出生年月' %><br />
+    <%= f.date_select :birth,:start_year=>1960,:end_year=>2001,:use_month_numbers=>true %>
+  </p>
+  <p>
+    <%= f.label :email,'电子邮件' %><br />
+    <%= f.text_field :email %>*正确填写邮箱格式,例如：aliwang@163.com
+  </p>
+  <p>
+    <%= f.label :school,'毕业学校' %><br />
+    <%= f.text_field :school %>
+  </p>
+   <p>
+    <%= f.label :major,'所属专业' %><br />
+    <%= f.text_field :major %>
+  </p>
+  <p>
+    <%= f.label :education,'最高学历' %>:
+     <label><input type="radio" name="anote[education]" value="初中" id="RadioGroupEdu_0" />初中</label>
+     <label><input type="radio" name="anote[education]" value="高中" id="RadioGroupEdu_1" />高中</label>
+     <label><input type="radio" name="anote[education]" value="大专" id="RadioGroupEdu_2" />大专</label>
+     <label><input type="radio" name="anote[education]" value="本科" id="RadioGroupEdu_3" />本科</label>
+  </p>
+  <p>
+    <%= f.label :degree,'最高学位' %>:
+    <label><input type="radio" name="anote[degree]" value="无" id="RadioGroupEdu_0" />无</label>
+    <label><input type="radio" name="anote[degree]" value="学士" id="RadioGroupEdu_1" />学士</label>
+    <label><input type="radio" name="anote[degree]" value="硕士" id="RadioGroupEdu_2" />硕士</label>
+    <label><input type="radio" name="anote[degree]" value="博士" id="RadioGroupEdu_3" />博士</label>
+  </p>
+  <p>
+    <%= f.label :resume,'工作经历' %><br />
+    <%= f.text_area :resume,:rows=>'6',:cols=>'80',:value=>"\n\n\n\n\n\n" %>
+  </p>
+    <p>
+    <%= f.label :question,'你的问题' %><br />
+    <%= f.text_area :question,:rows=>'6',:cols=>'80',:value=>"\n\n\n\n\n\n" %>
+  </p>
+  <p>
+    <%= f.label :english_type,'外语成绩' %>:
+    <select name="anote[english_type]">
+      <option value="GRE">GRE</option>
+      <option value="IELTS">IELTS</option>
+      <option value="TOEFL">TOEFL</option>
+      <option value="其它">其它</option>
+    </select>
+    <%= f.text_field :english_record %>
+  </p>
+  <p>
+    <%= f.label :plan_level,'计划就读层次' %>:
+    <%= f.hidden_field :plan_level %>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="高中课程" id="_0" />高中课程</label>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="大学入学英语课程" id="_1" />大学英语课程</label>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="本科课程" id="_2" />本科课程</label>
+    <label><input type="checkbox" name="CheckboxGroup1"  onclick="javascript: chk_property();" value="硕士课程" id="_3" />硕士课程</label>
+   <script language="javascript">
+      function chk_property()
+        {
+                var val="";
+                var allPropertyCheckboxs=document.getElementsByName("CheckboxGroup1");
+                for(var i=0; i<allPropertyCheckboxs.length; i++)
+                {
+                if(allPropertyCheckboxs[i].type=="checkbox")
+                {
+                     if(allPropertyCheckboxs[i].checked==true)
+                     {
+                     val=val +allPropertyCheckboxs[i].value;
+                     }
+                }
+                }
+                //alert(val);
+                //写入属性字段
+                document.getElementById("anote_plan_level").value = val;
+        }
+   </script>
+  </p>
+  <p>
+    <%= f.label :plan_major,'计划就读专业' %>:
+    <%= f.text_field :plan_major %>
+  </p>
+  <p>
+    <%= f.label :plan_date,'计划就读时间' %>:
+    <%= f.date_select :plan_date,:use_month_numbers=>true,:discard_day=>true %>
+  </p>
+  <p>
+    <%= f.submit '提交' %>
+  </p>
+<% end %>
+</div>
+<% content_for :js do %>
+  <script type="text/javascript">
+    function _submit(){
+      if( validator.isPassed(1)){
+        //alert("验证通过，可以提交数据了！");
+        return true;
+      }
+      return false;
+    }
+    var validator = new MyValidator();
+    validator.addValidation(new  InputRangeCustomValidation("anote_name","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("anote_tel","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("anote_question","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("anote_tel","true",	"*电话号码*",
+    "<span style='color:red'>请正确填写电话号码</span> ","default",18,28,regObj["_phone"]));
+    validator.setUp(1);
+  </script>
+<% end %>

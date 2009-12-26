@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  parent_id: 1
+  cn_name: MyString
+  en_name: MyString
+  url: MyString
+  is_leaf: false
+  is_display: false
+  sort_id: 1
+
+two:
+  parent_id: 1
+  cn_name: MyString
+  en_name: MyString
+  url: MyString
+  is_leaf: false
+  is_display: false
+  sort_id: 1

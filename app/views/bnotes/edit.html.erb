@@ -1,0 +1,192 @@
+<h1>Editing bnote</h1>
+
+<% form_for(@bnote) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :sex %><br />
+    <%= f.text_field :sex %>
+  </p>
+  <p>
+    <%= f.label :provance %><br />
+    <%= f.text_field :provance %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :birth %><br />
+    <%= f.date_select :birth %>
+  </p>
+  <p>
+    <%= f.label :tel %><br />
+    <%= f.text_field :tel %>
+  </p>
+  <p>
+    <%= f.label :contact_time %><br />
+    <%= f.text_field :contact_time %>
+  </p>
+  <p>
+    <%= f.label :fax %><br />
+    <%= f.text_field :fax %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :like_country %><br />
+    <%= f.text_field :like_country %>
+  </p>
+  <p>
+    <%= f.label :relative_info %><br />
+    <%= f.text_field :relative_info %>
+  </p>
+  <p>
+    <%= f.label :self_info %><br />
+    <%= f.text_field :self_info %>
+  </p>
+  <p>
+    <%= f.label :self_education %><br />
+    <%= f.text_field :self_education %>
+  </p>
+  <p>
+    <%= f.label :self_english %><br />
+    <%= f.text_field :self_english %>
+  </p>
+  <p>
+    <%= f.label :self_france %><br />
+    <%= f.text_field :self_france %>
+  </p>
+  <p>
+    <%= f.label :mate_education %><br />
+    <%= f.text_field :mate_education %>
+  </p>
+  <p>
+    <%= f.label :mate_english %><br />
+    <%= f.text_field :mate_english %>
+  </p>
+  <p>
+    <%= f.label :mate_france %><br />
+    <%= f.text_field :mate_france %>
+  </p>
+  <p>
+    <%= f.label :asset_cash %><br />
+    <%= f.text_field :asset_cash %>
+  </p>
+  <p>
+    <%= f.label :asset_house %><br />
+    <%= f.text_field :asset_house %>
+  </p>
+  <p>
+    <%= f.label :asset_bond %><br />
+    <%= f.text_field :asset_bond %>
+  </p>
+  <p>
+    <%= f.label :asset_company %><br />
+    <%= f.text_field :asset_company %>
+  </p>
+  <p>
+    <%= f.label :a_started_at %><br />
+    <%= f.date_select :a_started_at %>
+  </p>
+  <p>
+    <%= f.label :a_ended_at %><br />
+    <%= f.date_select :a_ended_at %>
+  </p>
+  <p>
+    <%= f.label :a_job %><br />
+    <%= f.text_field :a_job %>
+  </p>
+  <p>
+    <%= f.label :a_revenue %><br />
+    <%= f.text_field :a_revenue %>
+  </p>
+  <p>
+    <%= f.label :a_company_type %><br />
+    <%= f.text_field :a_company_type %>
+  </p>
+  <p>
+    <%= f.label :a_registered_capital %><br />
+    <%= f.text_field :a_registered_capital %>
+  </p>
+  <p>
+    <%= f.label :a_stock %><br />
+    <%= f.text_field :a_stock %>
+  </p>
+  <p>
+    <%= f.label :a_sale %><br />
+    <%= f.text_field :a_sale %>
+  </p>
+  <p>
+    <%= f.label :a_benefit %><br />
+    <%= f.text_field :a_benefit %>
+  </p>
+  <p>
+    <%= f.label :b_started_at %><br />
+    <%= f.date_select :b_started_at %>
+  </p>
+  <p>
+    <%= f.label :b_ended_at %><br />
+    <%= f.date_select :b_ended_at %>
+  </p>
+  <p>
+    <%= f.label :b_job %><br />
+    <%= f.text_field :b_job %>
+  </p>
+  <p>
+    <%= f.label :b_revenue %><br />
+    <%= f.text_field :b_revenue %>
+  </p>
+  <p>
+    <%= f.label :b_company_type %><br />
+    <%= f.text_field :b_company_type %>
+  </p>
+  <p>
+    <%= f.label :b_registered_capital %><br />
+    <%= f.text_field :b_registered_capital %>
+  </p>
+  <p>
+    <%= f.label :b_stock %><br />
+    <%= f.text_field :b_stock %>
+  </p>
+  <p>
+    <%= f.label :b_sale %><br />
+    <%= f.text_field :b_sale %>
+  </p>
+  <p>
+    <%= f.label :b_benefit %><br />
+    <%= f.text_field :b_benefit %>
+  </p>
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_area :question %>
+  </p>
+  <p>
+    <%= f.label :is_reply %><br />
+    <%= f.check_box :is_reply %>
+  </p>
+  <p>
+    <%= f.label :is_display %><br />
+    <%= f.check_box :is_display %>
+  </p>
+  <p>
+    <%= f.label :replyer %><br />
+    <%= f.text_field :replyer %>
+  </p>
+  <p>
+    <%= f.label :answer %><br />
+    <%= f.text_area :answer %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @bnote %> |
+<%= link_to 'Back', bnotes_path %>

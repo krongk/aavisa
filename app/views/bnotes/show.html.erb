@@ -1,0 +1,10 @@
+<div class="note_list">
+  <div class="title"><strong><span class="id"><%=h @bnote.id %>.</span><%=h @bnote.name %> 同学提出的问题:</strong><br/> 
+    <%=h @bnote.question %>
+  </div>
+  <div class="answer"><strong> <%=h @bnote.replyer %>回答: </strong><br/>
+    <%=h @bnote.answer %>
+  </div>
+</div>
+
+<%= link_to '返回', "/welcome/study"%>

@@ -1,0 +1,67 @@
+@charset"utf-8";
+#myjQuery {
+	OVERFLOW: hidden;
+	WIDTH: 675px;
+	POSITION: relative;
+	HEIGHT: 145px;
+	padding: 0px;
+}
+#myjQueryContent {
+	OVERFLOW: hidden;
+	width: 100%;
+}
+#myjQueryContent DIV {
+	POSITION: absolute
+}
+#myjQueryContent .smask {
+	Z-INDEX: -1
+}
+#myjQueryContent IMG {
+
+}
+#myjQuery ul {
+	DISPLAY: block;
+	OVERFLOW: hidden;
+	margin-top: 120px;
+}
+#myjQuery ul LI {
+	DISPLAY: block;
+	FLOAT: right;
+	WIDTH: 16px;
+	CURSOR: pointer;
+	PADDING-TOP: 7px;
+	HEIGHT: 16px;
+	TEXT-ALIGN: center;
+	margin-left: 2px;
+	background-color: #999;
+	margin-right: 3px;
+}
+#myjQuery ul.nbg {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#myjQuery ul A {
+	DISPLAY: block;
+	Z-INDEX: 12;
+	MARGIN: 0px auto;
+	TEXT-TRANSFORM: uppercase;
+	COLOR: #ffffff;
+	POSITION: relative;
+	background-color: #999;
+}
+#myjQuery ul .current {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+#myjQuery ul .current A {
+	COLOR: #F00;
+	background-color: #CCC;
+}
+#myjQuery #flow {
+	MARGIN-TOP: -47px;
+	Z-INDEX: 10;
+	BACKGROUND: url(img/fcurrent.gif);
+	LEFT: 5px;
+	WIDTH: 122px;
+	POSITION: absolute;
+	HEIGHT: 47px;
+	top: 101px;
+}

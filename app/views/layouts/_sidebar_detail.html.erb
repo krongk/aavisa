@@ -1,0 +1,80 @@
+<div id="login">
+  <div class="QQmsn">
+    <p style="margin:2px; background-color:#FFF; width:98%;">
+      &nbsp;&nbsp;
+      <a target="blank" href=" http://wpa.qq.com/msgrd?V=1&Uin=578618608&Site=yamei&Menu=yes"><img border="0" SRC= "http://wpa.qq.com/pa?p=1:578618608:6" alt="点击这里给我发消息" align="absmiddle"></a>
+      &nbsp;&nbsp;
+      <A href="msnim:chat?contact=yamei.william@hotmail.com" target="_blank"><img src="/images/ico/MSN.jpg" width="22" height="20" />MSN客服</A>
+    </p>
+  </div>
+</div>
+
+<div id="kefu"><div id="kefu_sub">
+  <a href="/contact"><img src="/images/kefu.gif" width="208" height="105" alt="客服服务" /></a>
+</div></div>
+
+<div id="sidebar1" class="sidebar">
+  <div class="sidebar_title">
+    <h2>实用工具查询</h2>
+  </div>
+  <div class="sidebar_body" style="text-align:left;">
+ <div style="padding:2px;">
+ <div style="padding:2px;"><b>实时汇率换算</b>
+ <IFRAME marginwidth="0" marginheight="0" src="/iframe/compute_forex.htm" frameborder="0" width="200" scrolling="No" height="45"></IFRAME>
+ </div></div>
+ <ul>
+     <% proj= Project.find(:first,:conditions=>["cn_name like ?","实用工具"])%>
+     <% items = Item.find(:all,:conditions=>["project_id = ?",proj.id],:limit=>12,:order=>'created_at DESC') %>
+     <% i =0 %>
+     <% items.each do |item| %>
+      <li><%=(i+=1)%>.&nbsp;<%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+     <% end %>
+    </ul>
+  </div>
+</div>
+
+<br/><br/>
+<div id="sidebar1" class="sidebar">
+  <table width="100%">
+    <tr>
+      <td width="30%" align="right"><span style="color:blue;">我要留学</span></td>
+      <td width="70%" rowspan="2">
+        <a href="/gnotes/new?t=在线咨询"><img src="/images/btn0.png" alt="在线留言" /></a>
+      </td>
+    </tr>
+    <tr>
+      <td align="right"><span style="color:blue;">我要移民</span></td>
+    </tr>
+  </table>
+</div>
+
+<div id="sidebar1" class="sidebar">
+  <div class="sidebar_title">
+    <h2>最新文章</h2>
+  </div>
+  <div class="sidebar_body" style="text-align:left;">
+    <ul>
+     <% items = Item.find(:all,:limit=>12,:order=>'created_at DESC') %>
+     <% i =0 %>
+     <% items.each do |item| %>
+      <li><%=(i+=1)%>.&nbsp;<%=link_to item.title.chars[0..14],item,:style=>"color:#{item.title_style}"%></li>
+     <% end %>
+    </ul>
+  </div>
+</div>
+
+<div id="sidebar1" class="sidebar">
+  <div class="sidebar_title"><h2>通用方便查询</h2></div>
+  <div class="sidebar_body" style="text-align:left;">
+ <%= javascript_include_tag 'Scroll' %>
+  <DIV class="list" style="height:212px;padding-left:5px;">
+  <DIV style="overflow:hidden;position:relative;height:202px;">
+  <DIV id="scoll" style="position: absolute; left: 0px; top: -943px; " init="1">
+  <DIV>·<A href="http://www.beijing.gc.ca/" target="_blank">加拿大北京移民局</A></DIV><DIV>·<A href="http://www.hongkong.gc.ca/" target="_blank">加拿大香港移民局</A></DIV><DIV>·<A href="http://www.csic-scci.ca/indexE.html" target="_blank">加拿大律师协会</A></DIV><DIV>·<A href="http://www.servicecanada.gc.ca/en/home.shtml" target="_blank">加拿大人力资源部</A></DIV><DIV>·<A href="http://www.cra-arc.gc.ca/" target="_blank">加拿大海关和税务部</A></DIV><DIV>·<A href="http://www.cic.gc.ca/" target="_blank">加拿大移民局</A></DIV><DIV>·<A href="http://www.immigration-quebec.gouv.qc.ca/anglais/index.html" target="_blank">魁北克移民局</A></DIV><DIV>·<A href="http://www.hkclinic.com/" target="_blank">加拿大指定体检医院</A></DIV><DIV>·<A href="http://www.immi.gov.au/" target="_blank">澳大利亚移民部</A></DIV><DIV>·<A href="http://www.china.embassy.gov.au/" target="_blank">澳大利亚驻京使馆</A></DIV><DIV>·<A href="http://www.ato.gov.au/" target="_blank">澳大利亚税务局</A></DIV><DIV>·<A href="http://www.ats.org.au/" target="_blank">澳大利亚计算机协会</A></DIV><DIV>·<A href="http://www.dewrsb.gov.au/tra.htm" target="_blank">澳大利亚技工认证机构</A></DIV><DIV>·<A href="http://www.ieaust.org.au/" target="_blank">澳大利亚职业教育和培训中心</A></DIV><DIV>·<A href="http://www.vetassess.com.au/" target="_blank">澳大利亚工程师协会</A></DIV><DIV>·<A href="http://www.ind.homeoffice.gov.uk/" target="_blank">英国移民局</A></DIV><DIV>·<A href="http://www.iras.gov.sg/irashome/default.aspx" target="_blank">新加坡税务局</A></DIV><DIV>·<A href="http://www.moe.gov.sg/" target="_blank">新加坡教育局</A></DIV><DIV>·<A href="http://www.edb.gov.sg/edb/sg/zh_cn/index.html" target="_blank">新加坡经济发展局</A></DIV><DIV>·<A href="http://www.mfa.gov.sg/" target="_blank">新加坡外交部</A></DIV><DIV>·<A href="http://app.stb.gov.sg/asp/" target="_blank">新加坡旅游局</A></DIV><DIV>·<A href="http://www.chinaembassy.org.sg/chn/" target="_blank">中国驻新加坡大使馆</A></DIV><DIV>·<A href="http://www.singcham.com.cn/" target="_blank">中国新加坡商会</A></DIV><DIV>·<A href="http://www.csc.mofcom-mti.gov.cn/csweb/index.jsp" target="_blank">中国新加坡经贸合作网</A></DIV><DIV>·<A href="http://sg.mofcom.gov.cn/" target="_blank">中国驻新加坡使馆经济商务参赞处</A></DIV><DIV>·<A href="http://www.china-embassy.org/eng/" target="_blank">中国驻美使馆</A></DIV><DIV>·<A href="http://us.mofcom.gov.cn/" target="_blank">中国驻美使馆商务处</A></DIV><DIV>·<A href="http://chinese.usembassy-china.org.cn/" target="_blank">美国驻华使馆</A></DIV><DIV>·<A href="http://www.firstgov.gov/" target="_blank">美国政府官方网站</A></DIV><DIV>·<A href="http://www.uscis.gov/portal/site/uscis" target="_blank">美国移民局官方网站</A></DIV><DIV>·<A href="http://www.usaengage.org/" target="_blank">美国经济联合会</A></DIV><DIV>·<A href="http://www.commerce.gov/" target="_blank">美国商务部</A></DIV><DIV>·<A href="http://www.ftc.gov/" target="_blank">美国联邦贸易委员会</A></DIV><DIV>·<A href="http://www.tda.gov/" target="_blank">美国贸易发展局</A></DIV><DIV>·<A href="http://www.census.gov/" target="_blank">美国人口普查局</A></DIV><DIV>·<A href="http://www.sba.gov/" target="_blank">美国小企业管理局</A></DIV><DIV>·<A href="http://www.direct.gov.uk/en/index.htm" target="_blank">英国政府网站</A></DIV><DIV>·<A href="http://www.chinese-embassy.org.uk/eng/" target="_blank">中国驻英国使馆</A></DIV><DIV>·<A href="http://www.uk.cn/bj/index.asp?lang=C" target="_blank">英国驻华大使馆</A></DIV><DIV>·<A href="http://www.ica.gov.sg/index.aspx" target="_blank">新加坡移民局</A></DIV><DIV>·<A href="http://www.business.gov/" target="_blank">美国商业顾问</A></DIV><DIV>·<A href="http://www.fda.gov/" target="_blank">美国食品药物管理局</A></DIV><DIV>·<A href="http://www.customs.gov/" target="_blank">美国海关</A></DIV><DIV>·<A href="http://www.irs.gov/" target="_blank">美国国税局</A></DIV><DIV>·<A href="http://www.epa.gov/" target="_blank">美国环保署</A></DIV><DIV>·<A href="http://www.atf.treas.gov/" target="_blank">美国烟酒管理局</A></DIV><DIV>·<A href="http://www.usda.gov/" target="_blank">美国农业部</A></DIV><DIV>·<A href="http://www.dot.gov/" target="_blank">美国交通部</A></DIV><DIV>·<A href="http://www.cpsc.gov/" target="_blank">美国消费安全委员会</A></DIV>		<DIV>·<A href="http://www.beijing.gc.ca/" target="_blank">加拿大北京移民局</A></DIV><DIV>·<A href="http://www.hongkong.gc.ca/" target="_blank">加拿大香港移民局</A></DIV><DIV>·<A href="http://www.csic-scci.ca/indexE.html" target="_blank">加拿大律师协会</A></DIV><DIV>·<A href="http://www.servicecanada.gc.ca/en/home.shtml" target="_blank">加拿大人力资源部</A></DIV><DIV>·<A href="http://www.cra-arc.gc.ca/" target="_blank">加拿大海关和税务部</A></DIV><DIV>·<A href="http://www.cic.gc.ca/" target="_blank">加拿大移民局</A></DIV><DIV>·<A href="http://www.immigration-quebec.gouv.qc.ca/anglais/index.html" target="_blank">魁北克移民局</A></DIV><DIV>·<A href="http://www.hkclinic.com/" target="_blank">加拿大指定体检医院</A></DIV><DIV>·<A href="http://www.immi.gov.au/" target="_blank">澳大利亚移民部</A></DIV><DIV>·<A href="http://www.china.embassy.gov.au/" target="_blank">澳大利亚驻京使馆</A></DIV><DIV>·<A href="http://www.ato.gov.au/" target="_blank">澳大利亚税务局</A></DIV><DIV>·<A href="http://www.ats.org.au/" target="_blank">澳大利亚计算机协会</A></DIV><DIV>·<A href="http://www.dewrsb.gov.au/tra.htm" target="_blank">澳大利亚技工认证机构</A></DIV><DIV>·<A href="http://www.ieaust.org.au/" target="_blank">澳大利亚职业教育和培训中心</A></DIV><DIV>·<A href="http://www.vetassess.com.au/" target="_blank">澳大利亚工程师协会</A></DIV><DIV>·<A href="http://www.ind.homeoffice.gov.uk/" target="_blank">英国移民局</A></DIV><DIV>·<A href="http://www.iras.gov.sg/irashome/default.aspx" target="_blank">新加坡税务局</A></DIV><DIV>·<A href="http://www.moe.gov.sg/" target="_blank">新加坡教育局</A></DIV><DIV>·<A href="http://www.edb.gov.sg/edb/sg/zh_cn/index.html" target="_blank">新加坡经济发展局</A></DIV><DIV>·<A href="http://www.mfa.gov.sg/" target="_blank">新加坡外交部</A></DIV><DIV>·<A href="http://app.stb.gov.sg/asp/" target="_blank">新加坡旅游局</A></DIV><DIV>·<A href="http://www.chinaembassy.org.sg/chn/" target="_blank">中国驻新加坡大使馆</A></DIV><DIV>·<A href="http://www.singcham.com.cn/" target="_blank">中国新加坡商会</A></DIV><DIV>·<A href="http://www.csc.mofcom-mti.gov.cn/csweb/index.jsp" target="_blank">中国新加坡经贸合作网</A></DIV><DIV>·<A href="http://sg.mofcom.gov.cn/" target="_blank">中国驻新加坡使馆经济商务参赞处</A></DIV><DIV>·<A href="http://www.china-embassy.org/eng/" target="_blank">中国驻美使馆</A></DIV><DIV>·<A href="http://us.mofcom.gov.cn/" target="_blank">中国驻美使馆商务处</A></DIV><DIV>·<A href="http://chinese.usembassy-china.org.cn/" target="_blank">美国驻华使馆</A></DIV><DIV>·<A href="http://www.firstgov.gov/" target="_blank">美国政府官方网站</A></DIV><DIV>·<A href="http://www.uscis.gov/portal/site/uscis" target="_blank">美国移民局官方网站</A></DIV><DIV>·<A href="http://www.usaengage.org/" target="_blank">美国经济联合会</A></DIV><DIV>·<A href="http://www.commerce.gov/" target="_blank">美国商务部</A></DIV><DIV>·<A href="http://www.ftc.gov/" target="_blank">美国联邦贸易委员会</A></DIV><DIV>·<A href="http://www.tda.gov/" target="_blank">美国贸易发展局</A></DIV><DIV>·<A href="http://www.census.gov/" target="_blank">美国人口普查局</A></DIV><DIV>·<A href="http://www.sba.gov/" target="_blank">美国小企业管理局</A></DIV><DIV>·<A href="http://www.direct.gov.uk/en/index.htm" target="_blank">英国政府网站</A></DIV><DIV>·<A href="http://www.chinese-embassy.org.uk/eng/" target="_blank">中国驻英国使馆</A></DIV><DIV>·<A href="http://www.uk.cn/bj/index.asp?lang=C" target="_blank">英国驻华大使馆</A></DIV><DIV>·<A href="http://www.ica.gov.sg/index.aspx" target="_blank">新加坡移民局</A></DIV><DIV>·<A href="http://www.business.gov/" target="_blank">美国商业顾问</A></DIV><DIV>·<A href="http://www.fda.gov/" target="_blank">美国食品药物管理局</A></DIV><DIV>·<A href="http://www.customs.gov/" target="_blank">美国海关</A></DIV><DIV>·<A href="http://www.irs.gov/" target="_blank">美国国税局</A></DIV><DIV>·<A href="http://www.epa.gov/" target="_blank">美国环保署</A></DIV><DIV>·<A href="http://www.atf.treas.gov/" target="_blank">美国烟酒管理局</A></DIV><DIV>·<A href="http://www.usda.gov/" target="_blank">美国农业部</A></DIV><DIV>·<A href="http://www.dot.gov/" target="_blank">美国交通部</A></DIV><DIV>·<A href="http://www.cpsc.gov/" target="_blank">美国消费安全委员会</A></DIV>		</DIV></DIV>
+  </DIV>
+  <SCRIPT>
+  SC_Pro.length ++;
+  scrollLogo('scoll',SC_Pro.length - 1);
+  </SCRIPT>
+  </div>
+</div>

@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+<title>帮助文档</title>
+<meta name="Generator" content="EditPlus">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<style type="text/css">
+*{font-size:13px;font-color:#00ff00;}
+h1{
+	font-size:14px;
+	background-color:#CCC;
+	padding:4px;
+	margin:0px;
+	cursor: hand;
+}
+li{;margin:12px;display:inline;}
+div{margin:0px;}
+.step1{
+	border:1px;
+	background-color:#09C;
+	padding: 2px;
+}
+#step1 ul li a {
+	color: #FFF;
+}
+.url {
+	margin: 2px;
+	padding: 4px;
+	border: 2px solid #A2BDDA;
+	background-color: #DFEFFF;
+	color: #102858;
+	font-size: 1.2em;
+	width: 50%;
+}
+.step2{padding:0px;border:1px;border-color:green;}
+#home{margin:0 0 1 1px;}
+#a1,#a2,#a3,#a4,#a5{
+	border:1px;
+	border-color:green;
+	background-color:#FFF;
+	margin:0px;
+	padding:4px;
+}
+</style>
+<script language="javascript" src="javascripts/prototype.js"></script>
+<script language="javascript">
+function change(a)
+{
+	if($(a).style.display=='block'){
+		$(a).style.display='none';
+	}else{
+		
+ for(var i =1;i<=5;i++)
+ {
+	var b='a'+i;
+	$(b).style.display='none';
+ }
+ $(a).style.display='block';
+}}
+</script>
+</head>
+
+<body>
+<!--??????-->
+<div id="step1" class="step1">
+	<ul>
+		<li><a href="javascript:change('a1');">后台用户管理</a></li>
+		<li><a href="javascript:change('a2');">项目菜单管理</a></li>
+		<li><a href="javascript:change('a3');">咨询问答管理</a></li>
+		<li><a href="javascript:change('a4');">图片管理</a></li>
+		<li><a href="javascript:change('a5');">国际联合办学</a></li>
+        <li><a href="javascript:change('a6');">萨省商贸合作</a></li>
+        <li><a href="javascript:change('a7');">关于亚美</a></li>
+    </ul>
+</div>
+<!--???????-->
+<div class="step2">
+<div id="home">
+	<h1 onClick="javascript:change('a1');">后台用户管理</h1>
+	<div id="a1" style="display:none;">
+	<h2>1.用户登录</h2>
+    <p class="url">登录地址: &nbsp;http://www.aa-visa.com/projects</p>
+    <p class="pic">登录界面如下，要求输入登录名，密码：<br/>
+    <img src="images/help/manage_login.jpg"/>
+    </p>
+    
+    <h2>2.退出程序</h2>
+    <p class="pic">为了安全起见，需要手动退出后台，直接右上角菜单点击“退出”按钮：<br/>
+    <img src="images/help/manage_logout.jpg"/>    </p>
+    
+     <h2>3.添加新管理员</h2>
+    <p class="url">网址: http://www.aa-visa.com/manages/new</p>
+    <p class="pic">往往不需要添加太多的管理员用户，不过如确实必要，可以进入相以上网址添加。<br>
+      *注意: <br>
+      &nbsp;&nbsp;&nbsp;&nbsp;1.请记住登录名和密码，一旦创建概不修改<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;2.如果忘记密码，可以联系<a href="#ken">技术支持</a><a href="mailto:kenrome@163.com"></a><br/>
+    <img src="images/help/manage_register.jpg"/>    </p>
+	</div>
+</div>
+</div>
+<!--???????-->
+<div id="home" class="step2">
+<h1 onClick="javascript:change('a2');">项目菜单管理</h1>
+<div id="a2" style="display:none;">
+	<h2>项目菜单管理</h2>
+    <p class="url">网址: http://www.aa-visa.com/projects</p>
+    <p class="pic">网站的所有管理菜单都在项目管理菜单下完成，每个栏目对应前台的栏目，栏目下添加的文章在前台相应的栏目下显示。<br>
+    注意：<br>
+     1。初始的栏目管理菜单都是根据前台需求设计出来的，不能够删除，否则前台会出现一些不对称。<br>
+     2。可以无限添加更多的栏目，在相应的栏目下添加文章。<br>
+    <img src="images/help/manage_menu.jpg"/></p>
+</div>
+</div>
+<!--???????-->
+<div id="home" class="step2">
+<h1 onClick="javascript:change('a3');">咨询问答管理</h1>
+<div id="a3" style="display:none;">
+	<h2>咨询问答管理涉及到的前台页面包括以下几个链接:<a href="/gnotes/new?t=有问必答" target="_blank">有问必答</a> /  <a href="/anotes/new" target="_blank">留学在线评估</a> / <a href="/bnotes/new" target="_blank">移民在线评估</a> / <a href="/signs/new" target="_blank">在线报名</a> / <a href="/welcome/study_sign" target="_blank">进程查询</a></h2>
+	<p><strong>1。涉及到的后台界面如下：</strong></p>
+    <p class="pic">
+   <img src="images/help/gnotes.jpg" alt="gnotes"><br/>
+    <strong>2。息编辑界面如下：</strong><br>
+    <img src="images/help/gnotes1.jpg" width="790" height="303"></p>
+    <p class="pic"><strong>3。进程管理界面：</strong></p>
+    <img src="images/help/sign1.jpg" width="801" height="274" alt="sign"><br>
+    点击每条记录的“修改”链接，进入进程修改界面：<br>
+  <img src="images/help/sign2.jpg" width="804" height="490" alt="sign"></div>
+</div>
+<!--???????-->
+<div id="home" class="step2">
+<h1 onClick="javascript:change('a4');">图片管理</h1>
+<div id="a4" style="display:none;">
+	<h2>文章图片管理</h2>
+    <p class="url">网址: http://www.aa-visa.com/photos</p>
+    <h3>1.给文章添加图片</h3>
+    <p>可以为每篇文章添加图片，图片的大小控制在1MB范围内，程序会自动将图片缩放为约定的大小<br>
+      <img src="images/help/menu_add_photo.jpg"/><br>
+</p>
+    <p>添加了图片后，在文章中显示出的效果如下：<br/>
+      <img src="images/help/menu_show_photo.jpg" border="1"/></p>
+    
+    <h3>2.为活动图集添加图片</h3>
+    <p>网站设计了一个活动图集管理栏目，为活动图集添加图片效果如下：<br>
+      <img src="images/help/photo_menu.jpg"/><img src="images/help/photo_show.jpg" width="205" height="158" alt="album"><br>
+      管理活动图集：<br>
+    <img src="images/help/photo_maange.jpg" width="716" height="329" alt="photo"><br>
+    编辑每幅图片：<br/>
+    <img src="images/help/photo_eidt.jpg" width="720" height="428" border="1"/></p>
+</div>
+</div>
+<!--???????-->
+<div id="home" class="step2">
+<h1 onClick="javascript:change('a5');">添加文章</h1>
+<div id="a5" style="display:block;">
+	<h2>添加文章</h2>
+    <p class="url">添加文章: http://www.aa-visa.com/school</p>
+    <p class="pic">???????��???????,&quot;?????????&quot;????��????????,?????????��????????????<br>
+<img src="images/help/school_menu.jpg"/> =&gt;   <img src="images/help/school1t.jpg" width="755" height="123" alt="school"><br>
+||<br>
+<img src="images/help/school_front.jpg" width="982" height="576" alt="school"></p>
+</div>
+</div>
+
+<!--???????-->
+<div id="home" class="step2" align="center">
+<p><a name="ken"></a>技术支持：宋学江&nbsp;&nbsp;  15928661802  &nbsp;&nbsp;kenrome@163.com &nbsp;&nbsp; QQ:77632132 &nbsp;&nbsp; agile web developer</p>
+<p><a href="/">返回前台</a>&nbsp;&nbsp; | &nbsp;&nbsp; <a href="/projects">返回后台</a>
+</p>
+</div>
+</body>
+</html>

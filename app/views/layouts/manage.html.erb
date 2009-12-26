@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>亚美经济文化-后台管理系统</title>
+    <%= javascript_include_tag :fckeditor %>
+    <%= javascript_include_tag :defaults,'validator' %>
+
+    <link href="/css/back_layout.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 7]>
+    <link href="/css/patches/patch_3col_standard.css" rel="stylesheet" type="text/css" />
+    <![endif]-->
+
+    <!--hidden the menu -->
+    <script type="text/javascript">
+      function show_menu()
+      {
+        if($("col1").style.display != "none"){
+          $("col1").style.display="none";
+          $("col3").style.width="100%";
+          $("col3").style.margin="0px";
+          $("show_menu_nav").innerHTML="显示管理菜单";
+        }else{
+          $("col1").style.display="block";
+          $("col3").style.width="750px";
+          $("col3").style.margin="0 0 0 22%";
+          $("show_menu_nav").innerHTML="隐藏管理菜单";
+        }
+      }
+    </script>
+
+    <!--use nitfy to make corner -->
+    <script type="text/javascript" src="/javascripts/nifty/niftycube.js"></script>
+    <link rel="stylesheet" type="text/css" href="/javascripts/nifty/niftyCorners.css" />
+    <script type="text/javascript">
+      Event.observe(window,'load',function(){
+        //Nifty("DIV.niftys","bottom");
+      });
+    </script>
+  </head>
+  <body>
+    <div class="header_page_margins">
+      <div class="header_page">
+        <!--begin: header-->
+        <div id="header">
+          <div id="topnav">
+            <span>
+              <a  href="javascript:void(0);" onclick="show_menu();" id="show_menu_nav">项目管理菜单</a> |
+              
+              <a href="/manage/sites/">站点管理</a> |
+              <% if current_manage %>
+                <%=current_manage.login %><%=link_to "退出","/manage/logout" %> |
+              <% end %>
+            <a href="/help">帮助</a></span>
+          </div>
+          <img src="/images/LOGO.png" width="120" height="45"/>
+          <h1>亚美经济文化网站·后台管理系统<em>&laquo;v0.10&raquo;</em></h1>
+          <span>Site &#8226; www.aa-visa.com</span>
+        </div>
+        <!--end: header-->
+      </div>
+    </div>
+
+    <div class="page_margins">
+      <div class="page">
+        <!-- begin: main navigation #nav -->
+        <div id="nav">
+          <% if flash[:notice] %>
+            <div id="layout-flash" class="note"><%=flash[:notice]%></div>
+          <% end %>
+        </div>
+        <!--end: main navigation #nav-->
+
+        <!-- begin: main content area #main -->
+        <div id="main">
+          <!-- begin: #col1 - first float column -->
+          <div id="col1" class="niftys">
+            <div id="col1_content" class="clearfix">
+              <%=render :partial=>'layouts/manage_side_navigation' %>
+            </div>
+          </div>
+          <!-- end: #col1 -->
+      <!-- begin: #col2 second float column -->
+          <div id="col2"></div>
+          <!-- end: #col2 -->
+      <!-- begin: #col3 static column -->
+          <div id="col3" class="niftys">
+            <div id="col3_content" class="clearfix"> <a id="content" name="content"></a>
+              <!-- skiplink anchor: Content -->
+              <%= yield %>
+            </div>
+            <div id="ie_clearing">&nbsp;</div>
+            <!-- End: IE Column Clearing -->
+          </div>
+          <!-- end: #col3 -->
+        </div>
+        <!-- end: #main -->
+      </div>
+    </div>
+  </body>
+</html>
+<%= yield :js %>

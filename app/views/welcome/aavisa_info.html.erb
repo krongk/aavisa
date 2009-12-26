@@ -1,0 +1,30 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<div  class="page2_body">
+<div class="page2_title">
+  <%= @pro_yamei.items.first.info %>
+</div>
+
+  <div class="subcolumns">
+    <div class="c50l">
+      <div class="subcl">
+        <h5>项目介绍</h5>
+        <ul class="home_news">
+          <% @pro_yamei.items.each do |item|%>
+             <li><%=link_to item.title,item,:style=>"color:#{item.title_style}"%></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="c50r">
+      <div class="subcr">
+        <h5>联办学校</h5>
+        <ul class="home_news">
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

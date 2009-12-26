@@ -1,0 +1,76 @@
+<h1>Editing anote</h1>
+
+<% form_for(@anote) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :tel %><br />
+    <%= f.text_field :tel %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :birth %><br />
+    <%= f.date_select :birth %>
+  </p>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :major %><br />
+    <%= f.text_field :major %>
+  </p>
+  <p>
+    <%= f.label :school %><br />
+    <%= f.text_field :school %>
+  </p>
+  <p>
+    <%= f.label :education %><br />
+    <%= f.text_field :education %>
+  </p>
+  <p>
+    <%= f.label :degree %><br />
+    <%= f.text_field :degree %>
+  </p>
+  <p>
+    <%= f.label :question %><br />
+    <%= f.text_area :question %>
+  </p>
+  <p>
+    <%= f.label :resume %><br />
+    <%= f.text_area :resume %>
+  </p>
+  <p>
+    <%= f.label :english_type %><br />
+    <%= f.text_field :english_type %>
+  </p>
+  <p>
+    <%= f.label :english_record %><br />
+    <%= f.text_field :english_record %>
+  </p>
+  <p>
+    <%= f.label :plan_level %><br />
+    <%= f.text_field :plan_level %>
+  </p>
+  <p>
+    <%= f.label :plan_major %><br />
+    <%= f.text_field :plan_major %>
+  </p>
+  <p>
+    <%= f.label :plan_date %><br />
+    <%= f.date_select :plan_date %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @anote %> |
+<%= link_to 'Back', anotes_path %>

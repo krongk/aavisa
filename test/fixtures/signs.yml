@@ -1,0 +1,67 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  user_id: 1
+  is_contract: false
+  record_code: MyString
+  is_valid: false
+  memo: MyText
+  name: MyString
+  sex: MyString
+  birth: 2009-08-18
+  birth_address: MyString
+  marry: MyString
+  tel: MyString
+  phone: MyString
+  qq: MyString
+  fax: MyString
+  address: MyString
+  zip: MyString
+  edu_exprience: MyText
+  work_exprience: MyText
+  language: MyString
+  language_record: MyString
+  exam_date: 2009-08-18
+  a_school: MyString
+  a_major: MyString
+  a_edu: MyString
+  a_year: MyString
+  b_major: MyString
+  b_edu: MyString
+  b_year: MyString
+  begin_date: 2009-08-18
+  language_type: MyString
+  language_degree: MyString
+
+two:
+  user_id: 1
+  is_contract: false
+  record_code: MyString
+  is_valid: false
+  memo: MyText
+  name: MyString
+  sex: MyString
+  birth: 2009-08-18
+  birth_address: MyString
+  marry: MyString
+  tel: MyString
+  phone: MyString
+  qq: MyString
+  fax: MyString
+  address: MyString
+  zip: MyString
+  edu_exprience: MyText
+  work_exprience: MyText
+  language: MyString
+  language_record: MyString
+  exam_date: 2009-08-18
+  a_school: MyString
+  a_major: MyString
+  a_edu: MyString
+  a_year: MyString
+  b_major: MyString
+  b_edu: MyString
+  b_year: MyString
+  begin_date: 2009-08-18
+  language_type: MyString
+  language_degree: MyString

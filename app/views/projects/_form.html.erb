@@ -1,0 +1,41 @@
+<% form_for(@project) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :parent_id,'选择父栏目' %><br />
+		<%= f.select :parent_id, 
+		@projects.collect{|c|[ c.the_name, c.id ]}.unshift(["请选择一个分类", 0]), :class => 'xxx' %>
+		<br/><span style="color:#666">*默认不选则表示添加顶级栏目</span>
+  </p>
+  <p>
+    <%= f.label :cn_name,'*栏目名称' %><br />
+    <%= f.text_field :cn_name %>
+  </p>
+  <p>
+    <%= f.label :en_name,'栏目英文' %><br />
+    <%= f.text_field :en_name %>
+  </p>
+  <p>
+    <%= f.label :url,'栏目地址' %><br />
+    <%= f.text_field :url %> 
+		<br/><span style="color:#666">*如果为外部链接栏目,则需要添加地址</span>
+  </p> 
+  <p>
+    <%= f.label :is_display,'在前台显示: ' %>
+    <%= f.check_box :is_display %>是
+  </p>
+	<!--
+	<p>
+    <%= f.label :is_leaf,'是终级栏目: ' %>
+    <%= f.check_box :is_leaf %>是
+  </p>
+  <p>
+    <%= f.label :sort_id,'排序编号' %><br />
+    <%= f.text_field :sort_id %>
+		<br/><span style="color:#666">*编号越大排在越前</span>
+  </p>
+	-->
+  <p>
+    <%= f.submit '添加' %>
+  </p>
+<% end %>

@@ -1,0 +1,40 @@
+<%#
+# 频道导航之留学
+%>
+<% @pro_liuxue = Project.find(:all,:conditions=>["cn_name like '留学'"],:order=>"created_at DESC") %>
+<% @pro_liuxue_guide = Project.find(:first,:conditions=>["cn_name like '留学指南'"],:order=>"created_at DESC")%>
+
+<div id="liuxue_nav">
+  <b class="big_number">1.</b><a href="/anotes/new" onmouseover=""><img src="/images/btn4.png"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <b class="big_number">2.</b><a href="/signs/new" onmouseover="show_detail(2);"><img src="/images/btn1.png"/></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <b class="big_number">3.</b><a href="/welcome/study_sign" onmouseover="show_detail(3);"><img src="/images/btn3.png"/></a>
+  <p id="liuxue_detail">亚美为您提供方便快捷的出国咨询服务,无论是留学、移民，还是境外商贸合作，亚美都能为你的提问进行及时地反馈和认真的回复</p>
+</div>
+
+<div class="subcolumns" style="float:none;">
+  <div class="c50l">
+    <div class="subcl">
+      <h5>留学新闻</h5>
+      <ul class="home_news">
+        <% @pro_liuxue.each do |pro| %>
+          <% pro.items.find(:all,:limit=>20,:order=>"created_at desc").each do |item| %>
+            <% if !item.title.include?('美国')  %>
+            <li> <%=link_to pro.cn_name+"-| "+item.title,item,:style=>"color:#{item.title_style}"%></li>
+            <% end  %>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="c50r">
+    <div class="subcr">
+      <h5>留学指南</h5>
+      <ul class="home_news">
+        <% items= Item.find(:all,:conditions=>["project_id =?",@pro_liuxue_guide],:order=>"created_at DESC",:limit=>10) %>
+        <% items.each do |item| %>
+         <li><%=link_to @pro_liuxue_guide.cn_name+"-| "+item.title,item,:style=>"color:#{item.title_style}"%></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

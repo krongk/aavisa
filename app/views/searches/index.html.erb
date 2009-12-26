@@ -1,0 +1,21 @@
+<%=render :partial=>'layouts/search'%>
+<br/>搜索结果
+<hr/>
+<% if @items.empty? %>
+  <p>没有相关的内容！</p>
+<% else %>
+  <% @items.each do |item| %>
+    <dl>
+      <dt>
+        <h3><%=link_to item.title, item%></h3>
+      </dt>
+      <dd>
+        <div><%=link_to item.project.cn_name,item.project %> | <%=format_date(item.created_at)%></div>
+        <%=white_list cut(item.info.chars[0..400])%>
+      </dd>
+    </dl>
+  <% end  %>
+<% end %>
+<div class='flickr_pagination'>
+  <%= will_paginate @items,:next_label=>"下一页",:previous_label=>"上一页" %>
+</div>

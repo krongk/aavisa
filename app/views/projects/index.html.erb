@@ -1,0 +1,30 @@
+<h3 class="niftys_h3">网站栏目列表
+<%= link_to '添加新栏目', new_project_path,:class=>"niftys_right" %>
+</h3>
+<table>
+  <tbody>
+  <tr style="background-color:#ddd;">
+    <td>标号</td>
+	<td>层级</td>
+    <td>栏目名称</td>
+    <td>英文名称</td>
+    <td>是否显示</td>
+	<td colspan="2">管理菜单</td>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+	<th><%=h project.id %></th>
+    <td><%=h project.parent_id %></td>
+    <td><%=h project.cn_name %></td>
+    <td><%=h project.en_name %></td>
+    <td><%=h format_only_no(project.is_display) %></td>
+    <td><%= link_to '查看文章', project_path(project) %> 
+		|
+		<%= link_to '添加新文章', new_item_path(:project_id =>project.id) %>
+		</td>
+    <td><%= link_to '编辑', edit_project_path(project.id) %> |
+     <%# link_to '删除', project_path(project.id), :confirm => '删除栏目将会删除该栏目下所有文章，确定要删除吗?', :method => :delete %></td>
+  </tr>
+<% end %>
+</tbody></table>

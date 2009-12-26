@@ -1,0 +1,301 @@
+@charset "UTF-8";
+/**
+ * "Yet Another Multicolumn Layout" - (X)HTML/CSS Framework
+ *
+ * (en) Screen layout for YAML examples
+ * (de) Bildschirmlayout für YAML-Beispiele
+ *
+ * @copyright       Copyright 2005-2009, Dirk Jesse
+ * @license         CC-A 2.0 (http://creativecommons.org/licenses/by/2.0/),
+ *                  YAML-C (http://www.yaml.de/en/license/license-conditions.html)
+ * @link            http://www.yaml.de
+ * @package         yaml
+ * @version         3.1
+ * @revision        $Revision: 343 $
+ * @lastmodified    $Date: 2009-01-19 23:41:32 +0100 (Mo, 19. Jan 2009) $
+ */
+
+@media screen, projection
+{
+  /**
+   * (en) Formatting YAML's  basic layout elements
+   * (de) Gestaltung des YAML Basis-Layouts
+   */
+
+  /* (en) Marginal areas & page background */
+  /* (de) Randbereiche & Seitenhintergrund */
+  body { padding: 0; }
+
+  /* (en) Centering layout in old IE-versions */
+  /* (de) Zentrierung des Layouts in alten IE-versionen */
+  body { text-align: center; }
+  .page_margins { text-align:left; margin: 0 auto; }
+
+  /* (en) Layout: width, background, borders */
+  /* (de) Layout: Breite, Hintergrund, Rahmen */
+  .page_margins {width:1000px; min-width: 900px; max-width: 80em; background: #fff; }
+  .page { padding: 10px; }
+
+  /* (en) Designing main layout elements */
+  /* (de) Gestaltung der Hauptelemente des Layouts */
+  .header_page_margins{
+    background: #4d87c7 url("../../images/bg_blue.png") repeat-x top left fixed;
+	text-align:left; 
+	margin: 0 auto;
+  }
+  .header_page{
+	padding:10px 20px;
+  }
+  #header {
+    color: #aaa;
+  }
+  
+  #topnav { color: #aaa; background: transparent; }
+
+  /* (en) adjustment of main navigation */
+  /* (de) Anpassung der Hauptnavigation */
+  #nav ul { margin-left: 20px; }
+
+  #main { background: #fff;padding:0px 0; }
+
+  #footer {
+    color:#666;
+    background: #f9f9f9;
+    padding: 10px 20px;
+    border-top: 5px #efefef solid;
+    line-height: 1.5em;
+  }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Formatting content container
+   * (de) Formatierung der Inhalts-Container
+   *
+   * |-------------------------------|
+   * | #header                       |
+   * |-------------------------------|
+   * | #col1   | #col3     | #col2   |
+   * | 25%     | flexible  | 25%     |
+   * |-------------------------------|
+   * | #footer                       |
+   * |-------------------------------|
+   */
+
+ /* Fixed width for left column | Fixe Breite für Linke Spalte */
+  #col1 {float:left; width: 20%; }
+  #col1_content { padding: 0px; }
+  /* Hide right column | Rechte Spalte abschalten */
+  #col2, #col2_content { display:none; }
+
+  #col3 { margin-left: 22%; margin-right: 0; width:750px;}
+  #col3_content {vertical-align: top; padding:0px; }
+
+  /*------------------------------------------------------------------------------------------------------*/
+
+  /**
+   * (en) Styling of layout specific elements
+   * (de) Gestaltung layoutabhängiger Elemente
+   */
+
+  #header h1 {
+    color: #ddd;
+    font-weight:bold;
+    font-size:2em;
+	margin:0;
+    color:#fff;
+  }
+  #header img{
+	float:left;
+	margin:0 10px;
+  }
+  #header span { color:#999; }
+
+  #topnav a { color: #eee; font-weight: normal; background:transparent; text-decoration:none; padding:4px;}
+  #topnav a:focus,
+  #topnav a:hover,
+  #topnav a:active { text-decoration:underline; background-color: transparent; padding:4px;}
+
+  #footer a { color: #999; background:transparent; font-weight: bold; }
+  #footer a:focus,
+  #footer a:hover,
+  #footer a:active {color: #4D87C7; background-color: transparent; text-decoration:underline; }
+
+ /*add some css to fit Nifty */
+ .niftys{
+	text-align: left;
+	vertical-align: top;
+	background: #d7ddea;
+	margin:0;
+
+ }
+ .niftys_h3{
+	font-size: 1.4em;
+	font-weight:bold;
+	color:#FFF;
+	margin:0;
+	padding: 6px 0 4px 10px;
+    background: #B3B3FF;
+	text-align: left;
+	border-bottom-width: 3px;
+	border-bottom-style: solid;
+	border-bottom-color: #A4A4FF;
+    
+  }
+  .niftys_right{
+    position:absolute;
+    float:right;
+    right: 1%; /* LTR */
+   
+	font:bold 12px/2em "宋体",Arial,Times;
+	text-decoration: underline;
+	padding-left:20px;
+	background-image: url("../../images/ico/post_new.gif");
+	background-repeat: no-repeat;
+	background-position: left bottom;
+  }
+  .niftys_right_back{
+    background:transparent; 
+	float:right;
+	font-size: 12px;
+	color: #fff;
+	text-decoration: underline;
+	padding-left:20px;
+	padding-right:4px;
+	background-image: url("../../images/ico/arrow_back.png");
+	background-repeat: no-repeat;
+	background-position: left bottom;
+  }
+  #niftys form
+  {
+	padding:0 10px;
+  }
+  #niftys input, select{
+	font-size: 12px;
+	line-height: 22px;
+	
+	padding: 2px;
+	border: 1px solid #7A7AFE;
+  }
+  /*end: nifty*/
+
+  /*start: project menu*/
+  #project_menu {
+	margin: 0px;
+	padding: 4px;
+	}
+	#project_menu ul {
+		list-style-type: none;
+		margin-left:20px;
+		padding:0px;
+	}
+	#project_menu ul li {
+	  font-weight: normal;
+	  margin:0;
+	  padding:0;
+	  list-style-image: url("../../images/ico/minimize.png");
+	}
+	#project_menu a{
+	  margin:0;
+	  padding:0;
+      color:navy;
+	}
+	#project_menu ul .top {
+	    font-weight: bold;
+		list-style-image: url("../../images/ico/maximize.png");
+	}
+	 /*end: project menu*/
+	.menu{
+	  margin:0px;
+	  padding:4px 10px;
+	  background:#B3B3FF;
+	}
+    /*news detail*/
+    #new_detail{
+        background-color:#fff;
+        
+    }
+    #new_bar {
+	padding: 6px;
+	background-color: #EEE;
+	margin-bottom: 12px;
+    }
+    #new_detail h1 {
+        font-size: 2em;
+        color: #036;
+        font-weight: bold;
+        text-align: center;
+    }
+      #new_detail h3 {
+        font-size: 1.4em;
+        color: #036;
+        text-align: center;
+    }
+    #new_body {
+        font-size: 1.2em;
+        color: #333;
+    }
+    /*photos list*/
+    .album ul{
+	margin: 0px;
+	padding: 0px;
+	display: block;
+
+    }
+    .album li{
+        float: left;
+        display:block;
+        margin: 0px;
+        list-style-type: none;
+        padding: 0px;
+
+    }
+    .album li a{
+        display: block;
+        margin: 2px;
+        padding: 1px;
+        border: 1px solid #FFF;
+    }
+    .album li a:hover{
+        border: 1px solid #ddd;
+    }
+    /*显示gnotes,anotes,bnotes列表*/
+      .note_list {
+    background-color: #fff;
+    border: 1px solid #93A4E6;
+    padding: 0px;
+    margin:10px;
+  }
+  .note_list .title {
+    margin: 0px;
+    padding: 8px;
+    font-weight: bold;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #7686D3;
+    background-color: #FFC;
+  }
+  .note_list .title .id {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #F00;
+    font-style: italic;
+  }
+  .note_list .title .note_menu {
+    float: right;
+    padding: 0px;
+    margin: 0px;
+  }
+  .note_list .question {
+    margin: 0px;
+    padding: 8px;
+  }
+  .note_list .answer {
+    color:green;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #7686D3;
+    margin: 0px;
+    padding: 8px;
+  }
+}

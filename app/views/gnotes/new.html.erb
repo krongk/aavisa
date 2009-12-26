@@ -1,0 +1,52 @@
+<div id="niftys" class="niftys">
+  <h2 class="form_h2">&nbsp;&nbsp;<% if params[:t] then %><%=params[:t]%><% else %>  有问必答<% end %></h2>
+  <% form_for(@gnote,:html=>{:onsubmit=>'return _submit();'}) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :name,'姓名' %><br />
+      <%= f.text_field :name %>*为了准确把握您的信息，这里务必填写您的真实姓名。
+    </p>
+    <p>
+      <%= f.label :tel,'电话' %><br />
+      <%= f.text_field :tel %>*正确填写电话号码,方便我们及时能联系到您
+    </p>
+    <p>
+      <%= f.label :phone,'手机' %><br />
+      <%= f.text_field :phone %>*在左侧填写您的手机号码
+    </p>
+    <p>
+      <%= f.label :birth,'出生日期' %><br />
+      <%= f.date_select :birth,:start_year=>1960,:use_month_numbers=>true %>
+    </p>
+    <p>
+      <%= f.label :email,'电子邮件' %><br />
+      <%= f.text_field :email %>*正确填写邮箱格式,例如：yamei@163.com
+    </p>
+    <p>
+      <%= f.label :question,'您的问题' %><br />
+      <%= f.text_area :question,:cols=>"80", :rows=>"6",:height=>'400px;',:value=>"\n\n\n\n\n\n" %>
+    </p>
+
+    <p>
+      <%= f.submit '提交' %>
+    </p>
+  <% end %>
+</div>
+<% content_for :js do %>
+  <script type="text/javascript">
+    function _submit(){
+      if( validator.isPassed(1)){
+        //alert("验证通过，可以提交数据了！");
+        return true;
+      }
+      return false;
+    }
+    var validator = new MyValidator();
+    validator.addValidation(new  InputRangeCustomValidation("gnote_name","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.addValidation(new  InputRangeCustomValidation("gnote_question","true","*必填*",
+    "<span style='color:red'>*必填*</span>","default",18,28,regObj["_require"]));
+    validator.setUp(1);
+  </script>
+<% end %>

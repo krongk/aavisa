@@ -1,0 +1,46 @@
+<!--begin channel body-->
+<div  class="page2_body">
+  <div id="gpc_sa">
+    <%= @pro_yamei.items.first.info.chars[0..400] %>.&nbsp;<%=link_to "浏览更多...",@pro_yamei.items.first %>
+  </div>
+  
+  <div class="subcolumns">
+    <div class="c50l">
+      <div class="subcl">
+        <h5>公司信息</h5>
+        <ul class="home_news">
+          <% @yamei_project.items.each do |item| %>
+            <li><%=link_to item.title,item,:style=>"color:#{item.title_style}" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="c50r">
+      <div class="subcr">
+        <h5>实用工具</h5>
+        <ul class="home_news">
+         <% @pro_tool.items.find(:all,:order=>"created_at desc",:limit=>12).each do |item| %>
+          <li><%=link_to item.title,item,:style=>"color:#{item.title_style}" %></li>
+         <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="subcolumns">
+    <div class="c50l">
+      <div class="subcl">
+        <h5>有问必答</h5>
+        <ul class="home_news">
+         <% Gnote.find(:all,:conditions=>["is_display = 1"],:order=>"created_at desc",:limit=>8).each do |note| %>
+          <li> <%=link_to note.name+": "+note.question.chars[0..20],note %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end channel body-->
+<br/>
+<%=render :partial=>"layouts/search"%>
+<%=render :partial=>"layouts/friend_link"%>
