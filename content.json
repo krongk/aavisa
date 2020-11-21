@@ -1,9 +1,13 @@
 {
   "custom-field": "name",
   "custom-object": {
-    "custom-line": "line"
+    "custom-line": "line",
+    "custom-text": "good"
   },
   "custom-list": [
+    {
+      "custom-list-item": "sex"
+    },
     {
       "custom-list-item": "content"
     }
